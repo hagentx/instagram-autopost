@@ -28,8 +28,8 @@ jobs:
 
       - name: Caption + overlay + schedule new selfies
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          ANTHROPIC_MODEL: ${{ vars.ANTHROPIC_MODEL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
           MEDIA_BASE_URL: ${{ vars.MEDIA_BASE_URL }}
           POST_DAYS: ${{ vars.POST_DAYS }}
           POST_TIME_UTC: ${{ vars.POST_TIME_UTC }}

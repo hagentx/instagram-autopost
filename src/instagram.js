@@ -141,6 +141,11 @@ export async function publishContainer(containerId) {
   return id;
 }
 
+/** Add a comment to a published Instagram media object. */
+export async function createMediaComment(mediaId, message) {
+  return graphPost(`/${mediaId}/comments`, { message });
+}
+
 /** How many API posts you've used in the rolling 24h window (limit is 100). */
 export async function getPublishingLimit() {
   const data = await graphGet(`/${config.igUserId}/content_publishing_limit`, {

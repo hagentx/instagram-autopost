@@ -20,7 +20,7 @@ import {
 
 const QUEUE_PATH = join(ROOT, "content", "queue.json");
 const DRY_RUN = process.argv.includes("--dry-run");
-const DEFAULT_MENTION = "@xuxamenegheloficial";
+const DEFAULT_MENTION = "@xuxameneghel";
 const DEFAULT_COMMENT = `Com carinho para a eterna Rainha dos Baixinhos: ${DEFAULT_MENTION}`;
 
 /** Turn "media/hat.jpg" into a full URL using MEDIA_BASE_URL; pass URLs through. */

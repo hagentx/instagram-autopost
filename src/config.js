@@ -46,7 +46,7 @@ export const config = {
 
   // Gemini (caption generation)
   geminiApiKey: process.env.GEMINI_API_KEY || "",
-  geminiModel: process.env.GEMINI_MODEL || "gemini-2.5-flash",
+  geminiModel: process.env.GEMINI_MODEL || "gemini-3.6-flash",
 
   // Anthropic (legacy compatibility)
   // Kept here so other parts of the original project do not break.

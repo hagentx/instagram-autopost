@@ -1,34 +1,17 @@
-# 📸 media/ — drop your selfies here
+# 📸 media/ — drop your collection photos here
 
 This is the only folder you touch. Add photos, the machine does the rest.
 
-## How to add images
+Every new photo is analyzed by Gemini for the caption, while the published image remains a clean, untouched copy of the original photo. No text, drawing, or overlay is burned onto the image.
 
-**Every day, just drop new selfies in here.** Two ways:
+The system remembers scheduled/published filenames in `../content/queue.json`, so a photo is normally used only once.
 
-- **Phone / browser (no terminal):** open this folder on github.com → "Add file"
-  → "Upload files" → drag your selfies in → "Commit changes."
-- **Laptop:** copy files into this folder, then `git add media/ && git commit -m "new pics" && git push`.
+## Photo rules
 
-That push is the trigger. Within a few minutes each NEW photo gets a one-liner
-written from the photo, burned on in your brand font, and scheduled to post.
-
-## "Will it re-post old photos?" — No.
-
-Every photo that's ever been scheduled is remembered by filename in
-`../content/queue.json`. On each run the system skips anything already there,
-so **this folder can just keep growing** — dumped photos are only ever used once.
-(If you rename a file, it looks new and could post again — so don't rename.)
-
-## Photo rules (Instagram's, not ours)
-
-- **JPEG only** (`.jpg` / `.jpeg`). Export from your phone as JPEG.
-- Keep files **under ~4 MB** (bigger ones are skipped so the vision step stays fast).
-- Any shape is fine — it's auto-cropped to 4:5 (portrait), the tallest Instagram allows.
-- Vertical selfies look best. The caption auto-places in clear space, above or
-  below you, never across your face.
+- JPEG or PNG (`.jpg` / `.jpeg` / `.png`).
+- Keep files under ~4.5 MB.
+- The original image is preserved for publication.
 
 ## Order
 
-Photos post in **filename order**. If you care which goes first, name them
-`01-...jpg`, `02-...jpg`. Otherwise don't worry about it.
+Photos are scheduled according to the configured posting cadence.

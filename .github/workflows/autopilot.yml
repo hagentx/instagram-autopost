@@ -34,7 +34,17 @@ jobs:
           POST_DAYS: ${{ vars.POST_DAYS }}
           POST_TIME_UTC: ${{ vars.POST_TIME_UTC }}
           AUTOPILOT_REVIEW: ${{ vars.AUTOPILOT_REVIEW }}
-        run: node src/autopilot.js
+        run: |
+          # Manual runs are tests: use the next 30-minute slot today,
+          # instead of pushing the test to the next daily publishing day.
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            SLOT=$(($(date -u +%s) / 1800 * 1800 + 1800))
+            echo "POST_DAYS=$(date -u -d "@$SLOT" +%a | tr '[:lower:]' '[:upper:]')" >> "$GITHUB_ENV"
+            echo "POST_TIME_UTC=$(date -u -d "@$SLOT" +%H:%M)" >> "$GITHUB_ENV"
+            echo "Manual test slot: $(date -u -d "@$SLOT" '+%Y-%m-%d %H:%M UTC')"
+          fi
+
+          node src/autopilot.js
 
       - name: Commit rendered posts + queue
         run: |

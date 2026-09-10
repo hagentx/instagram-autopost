@@ -1,39 +1,5 @@
 [
   {
-    "id": "2026-09-11-cinto-da-xuxa",
-    "status": "scheduled",
-    "publish_at": "2026-09-11T17:00:00.000Z",
-    "media_type": "IMAGE",
-    "media_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-cinto-da-xuxa.jpg",
-    "alt_text": "Embalagem em cartela de papelão azul e rosa do Cinto da Xuxa, contendo um cinto plástico branco com estampas no blister transparente. A cartela traz uma fotografia de Xuxa sorrindo, além de ilustrações de personagens e a indicação de tamanho M na parte inferior.",
-    "caption": "Cinto da Xuxa\n\nMais um item cheio de nostalgia para encantar nosso acervo da Xuxa! 💖\n\n📌 Produto: Cinto da Xuxa\n📌 Licenciamento: © 1993 Xuxa Produções e Promoções Artísticas Ltda.\n📌 Tamanho: M\n📌 Cor do cinto: Branco com estampas coloridas\n📌 Embalagem: Cartela blister ilustrada com foto da Xuxa e personagens\n\n⭐ Curiosidade: A embalagem traz a foto da Apresentadora cercada por personagens ilustrados em cores vibrantes e a indicação de direitos autorais datada de 1993.\n\nGuardar uma peça dessa na embalagem original é preservar um pedacinho da nossa infância.\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
-    "source_file": "CINTO DA XUXA.jpg",
-    "product_name": "Cinto da Xuxa",
-    "observed_details": [
-      {
-        "label": "Produto",
-        "value": "Cinto da Xuxa"
-      },
-      {
-        "label": "Licenciamento",
-        "value": "© 1993 Xuxa Produções e Promoções Artísticas Ltda."
-      },
-      {
-        "label": "Tamanho",
-        "value": "M"
-      },
-      {
-        "label": "Cor do cinto",
-        "value": "Branco com estampas coloridas"
-      },
-      {
-        "label": "Embalagem",
-        "value": "Cartela blister ilustrada com foto da Xuxa e personagens"
-      }
-    ],
-    "research_status": "not_web_verified"
-  },
-  {
     "id": "2026-09-12-cinto-da-xuxa2",
     "status": "scheduled",
     "publish_at": "2026-09-12T17:00:00.000Z",

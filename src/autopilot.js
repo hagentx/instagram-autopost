@@ -1,5 +1,5 @@
 // src/autopilot.js
-// Automatic photo -> Gemini analysis -> rendered post -> scheduled queue.
+// Automatic photo -> Gemini analysis -> clean rendered copy -> scheduled queue.
 
 import {
   readdirSync,
@@ -8,10 +8,10 @@ import {
   existsSync,
   mkdirSync,
   statSync,
+  copyFileSync,
 } from "node:fs";
 import { join, extname } from "node:path";
 import { config, requireGeminiConfig, ROOT } from "./config.js";
-import { overlayCaption } from "./overlay.js";
 
 const MEDIA_DIR = join(ROOT, "media");
 const RENDERED_DIR = join(ROOT, "media", "rendered");
@@ -19,8 +19,7 @@ const QUEUE_PATH = join(ROOT, "content", "queue.json");
 const BRAND_PATH = join(ROOT, "brand.json");
 const LINES_PATH = join(ROOT, "content", "lines.json");
 
-// Instagram permite até 5 hashtags por publicação.
-// Estas são as cinco hashtags principais e entram sempre, sem exceção.
+// As cinco hashtags fixas do perfil. Nenhuma hashtag extra é gerada pelo Gemini.
 const DEFAULT_HASHTAGS = [
   "#colexão",
   "#xuxinha",
@@ -29,8 +28,7 @@ const DEFAULT_HASHTAGS = [
   "#xuxa",
 ];
 
-// Vocabulário editorial permanente. Não são hashtags obrigatórias:
-// servem para orientar o Gemini a usar estes termos naturalmente quando forem pertinentes.
+// Vocabulário editorial permanente. São palavras/conceitos, não hashtags.
 const DEFAULT_KEYWORDS = [
   "Xuxa Meneghel",
   "coleção X",
@@ -39,8 +37,8 @@ const DEFAULT_KEYWORDS = [
   "Que Xou da Xuxa é esse",
   "Filmes da Xuxa",
   "Sessão X",
-  "Pôster da Xuxa",
-  "Boneca da Xuxa",
+  "pôster da Xuxa",
+  "boneca da Xuxa",
   "Xuxinha",
   "mimo",
   "brinquedos Mimo",
@@ -125,44 +123,56 @@ function slug(s) {
 function buildVisionSystem(brand) {
   return [
     "Você é o assistente editorial de um perfil brasileiro de colecionismo dedicado à Xuxa.",
-    "Você receberá UMA fotografia de uma peça, produto, revista, embalagem ou item relacionado à coleção.",
-    "O objetivo é criar uma frase curta para Instagram com tom de fã, colecionador, nostalgia e memória afetiva.",
+    "Você receberá uma fotografia de uma peça, produto, revista, embalagem ou item relacionado à coleção.",
+    "A fotografia NÃO deve receber nenhum texto, desenho ou sobreposição. Ela será publicada limpa, preservando o produto original.",
+    "",
+    "OBJETIVO:",
+    "Criar uma legenda de Instagram mais rica, informativa e agradável para colecionadores, combinando uma abertura afetiva com dados do produto que possam ser comprovados pela própria fotografia.",
     "",
     "CONTEXTO DA MARCA:",
     JSON.stringify(brand, null, 2),
     "",
-    "PALAVRAS/CONCEITOS PADRÃO DO PERFIL:",
+    "VOCABULÁRIO DO PERFIL:",
     DEFAULT_KEYWORDS.join(", "),
-    "Use estes termos naturalmente quando fizer sentido para a imagem. Não transforme a frase em uma lista de palavras.",
+    "Use esses termos somente quando forem pertinentes. Nunca transforme a legenda em uma lista artificial de palavras-chave.",
     "",
-    "REGRAS DA FRASE:",
-    "- Escreva SEMPRE em português do Brasil.",
-    "- Crie uma única frase original com 4 a 13 palavras.",
-    "- Use linguagem natural, nostálgica, simpática e adequada para um perfil de colecionador.",
-    "- A frase pode destacar nostalgia, raridade, memória, época, design, embalagem ou o prazer de colecionar.",
-    "- Não invente fatos específicos que não possam ser percebidos na imagem ou fornecidos pelo contexto.",
-    "- Não descreva simplesmente a fotografia.",
-    "- Não coloque hashtags na frase editorial: as cinco hashtags padrão serão acrescentadas automaticamente pelo sistema.",
-    "- Não use emojis.",
-    "- Não use aspas.",
+    "REGRA ABSOLUTA CONTRA INVENÇÃO:",
+    "- Use como fatos somente informações legíveis na fotografia ou inequivocamente visíveis nela.",
+    "- NÃO invente ano, fabricante, país, distribuição, preço, raridade, tiragem, quantidade produzida, licenciamento ou história do produto.",
+    "- NÃO transforme uma hipótese em fato.",
+    "- Se uma informação estiver ilegível, ambígua ou não puder ser confirmada pela fotografia, deixe o campo vazio/null.",
+    "- Não use conhecimento de memória do modelo para preencher lacunas.",
+    "- A pesquisa externa será adicionada posteriormente; nesta etapa, não atribua ao produto informações que não estejam comprovadas na imagem.",
+    "",
+    "INFORMAÇÕES A EXTRAIR DA IMAGEM:",
+    "- Nome/título do produto, se identificável.",
+    "- Marca e fabricante, se legíveis.",
+    "- Ano ou período, somente se estiver indicado ou claramente impresso.",
+    "- Código, referência ou número do produto, se legível.",
+    "- País/mercado, somente se indicado na peça/embalagem.",
+    "- Linha, coleção ou versão, se indicada.",
+    "- Conteúdo/acessórios visíveis e outras características relevantes.",
+    "- Uma ou duas curiosidades baseadas exclusivamente em elementos visíveis.",
+    "",
+    "ESTRUTURA DA LEGENDA:",
+    "- product_name: nome principal do produto. Seja específico, mas não invente.",
+    "- intro: 1 ou 2 frases curtas, bonitas e naturais, com tom de fã e colecionador.",
+    "- details: lista de informações factuais que estejam realmente confirmadas na imagem. Use no máximo 7 itens.",
+    "- curiosity: uma curiosidade curta baseada naquilo que aparece na peça/embalagem. Se não houver uma boa curiosidade, use string vazia.",
+    "- closing: uma frase curta sobre memória afetiva/colecionismo, sem inventar contexto histórico.",
+    "- alt_text: descrição factual da imagem para acessibilidade.",
+    "",
+    "REGRAS DE TEXTO:",
+    "- Português do Brasil.",
+    "- Não coloque hashtags dentro de nenhum campo; o sistema acrescentará exatamente cinco hashtags no final.",
+    "- Não use emojis em excesso; no máximo dois em toda a legenda.",
+    "- Não faça afirmações históricas que não estejam confirmadas na imagem.",
+    "- Não copie longos textos da embalagem; resuma quando necessário.",
     "- Não faça comentários depreciativos, ofensivos ou sexualizados.",
-    "- Não faça piadas sobre aparência, idade, corpo ou características pessoais.",
-    "- Não use palavras como cancelled/cancelado, cringe, fracasso ou equivalentes para provocar.",
-    "- Não transforme o texto em crítica negativa.",
-    "- Não reutilize frases anteriores.",
-    "",
-    "POSIÇÃO DO TEXTO:",
-    "- A imagem será centralizada/cortada para formato vertical 4:5.",
-    "- Analise o enquadramento final 4:5.",
-    "- Identifique a região da cabeça/rosto e informe face_band como frações de 0.0 a 1.0.",
-    "- Inclua o cabelo ao estimar a região do rosto.",
-    "- Escolha top quando houver mais espaço livre acima do rosto e bottom quando houver mais espaço livre abaixo.",
-    "- O texto deve ficar na área mais livre e nunca cobrir o rosto ou o item principal.",
     "",
     "SAÍDA:",
     "Retorne SOMENTE JSON válido, sem Markdown e sem explicações.",
-    '{ "line": string, "position": "top" | "bottom", "face_band": { "top": number, "bottom": number }, "alt_text": string }',
-    "alt_text deve ser uma frase factual em português descrevendo a imagem para acessibilidade.",
+    '{ "product_name": string, "intro": string, "details": [{ "label": string, "value": string }], "curiosity": string, "closing": string, "alt_text": string }',
   ].join("\n");
 }
 
@@ -176,9 +186,7 @@ function extractJson(text) {
   const end = stripped.lastIndexOf("}");
   const candidates = [stripped];
 
-  if (start >= 0 && end > start) {
-    candidates.push(stripped.slice(start, end + 1));
-  }
+  if (start >= 0 && end > start) candidates.push(stripped.slice(start, end + 1));
 
   for (const candidate of candidates) {
     try {
@@ -229,8 +237,30 @@ async function callGeminiWithRetry(url, options) {
   throw lastErr;
 }
 
-function buildCaption(line) {
-  return `${line}\n\n${DEFAULT_HASHTAGS.join(" ")}`;
+function clean(value) {
+  return typeof value === "string" ? value.trim() : "";
+}
+
+function buildCaption(info) {
+  const productName = clean(info.product_name) || "Peça da coleção Xuxa";
+  const intro = clean(info.intro);
+  const details = Array.isArray(info.details)
+    ? info.details
+        .filter((item) => item && clean(item.label) && clean(item.value))
+        .slice(0, 7)
+        .map((item) => `📌 ${clean(item.label)}: ${clean(item.value)}`)
+    : [];
+  const curiosity = clean(info.curiosity);
+  const closing = clean(info.closing);
+
+  const parts = [`${productName}`];
+  if (intro) parts.push(intro);
+  if (details.length) parts.push(details.join("\n"));
+  if (curiosity) parts.push(`⭐ Curiosidade: ${curiosity}`);
+  if (closing) parts.push(closing);
+  parts.push(DEFAULT_HASHTAGS.join(" "));
+
+  return parts.join("\n\n");
 }
 
 export async function analyzePhoto(filePath, filename, brand, usedLines) {
@@ -239,8 +269,8 @@ export async function analyzePhoto(filePath, filename, brand, usedLines) {
   const mediaType = ext === ".png" ? "image/png" : "image/jpeg";
 
   const prompt =
-    `Frases já usadas recentemente, que você deve evitar repetir:\n${JSON.stringify(usedLines.slice(-120))}\n\n` +
-    "Analise a fotografia e produza a frase editorial em português e os dados de posicionamento pedidos. A frase deve valorizar a memória afetiva e o colecionismo de Xuxa.";
+    `Legendas anteriores, para evitar repetir ideias: ${JSON.stringify(usedLines.slice(-80))}\n\n` +
+    "Analise cuidadosamente a fotografia. Extraia apenas fatos que estejam visíveis e legíveis. Depois redija a estrutura solicitada. Se não houver evidência suficiente para um dado, deixe-o vazio. NÃO invente informações para tornar a legenda mais completa.";
 
   const body = JSON.stringify({
     systemInstruction: {
@@ -261,7 +291,7 @@ export async function analyzePhoto(filePath, filename, brand, usedLines) {
       },
     ],
     generationConfig: {
-      maxOutputTokens: 2048,
+      maxOutputTokens: 3072,
       responseMimeType: "application/json",
       thinkingConfig: {
         thinkingLevel: "minimal",
@@ -295,12 +325,11 @@ export async function analyzePhoto(filePath, filename, brand, usedLines) {
   }
 
   const parsed = extractJson(text);
-
-  if (parsed?.line) return parsed;
+  if (parsed?.product_name || parsed?.intro || Array.isArray(parsed?.details)) return parsed;
 
   const finish = candidate?.finishReason || "unknown";
   throw new Error(
-    `Could not parse a valid line from Gemini response (finishReason: ${finish}): ${text.slice(0, 400)}`
+    `Could not parse a valid product analysis from Gemini (finishReason: ${finish}): ${text.slice(0, 500)}`
   );
 }
 
@@ -371,26 +400,20 @@ async function main() {
     try {
       console.log(`Analyzing ${f} ...`);
 
-      const { line, position = "top", face_band, alt_text } = await analyzePhoto(
-        join(MEDIA_DIR, f),
-        f,
-        brand,
-        usedLines
-      );
-
-      const outName = `post-${slug(f)}.jpg`;
+      const info = await analyzePhoto(join(MEDIA_DIR, f), f, brand, usedLines);
+      const caption = buildCaption(info);
+      const outExt = extname(f).toLowerCase() === ".png" ? ".png" : ".jpg";
+      const outName = `post-${slug(f)}${outExt}`;
       const outRel = `media/rendered/${outName}`;
-      const caption = buildCaption(line);
 
-      await overlayCaption(
-        join(MEDIA_DIR, f),
-        line,
-        join(RENDERED_DIR, outName),
-        { position, faceBand: face_band }
-      );
+      // IMPORTANT: the published image is an untouched copy of the original.
+      // Gemini text is never rendered over the product photo.
+      copyFileSync(join(MEDIA_DIR, f), join(RENDERED_DIR, outName));
 
       const slot = nextSlot(latest);
       latest = slot.getTime();
+
+      const shortLine = clean(info.intro) || clean(info.product_name) || "Peça da coleção Xuxa";
 
       queue.push({
         id: `${slot.toISOString().slice(0, 10)}-${slug(f)}`,
@@ -398,16 +421,21 @@ async function main() {
         publish_at: slot.toISOString(),
         media_type: "IMAGE",
         media_url: publicUrlFor(outRel),
-        alt_text: alt_text || line,
+        alt_text: clean(info.alt_text) || clean(info.product_name) || "Item da coleção Xuxa.",
         caption,
         source_file: f,
+        product_name: clean(info.product_name),
+        observed_details: Array.isArray(info.details) ? info.details : [],
+        research_status: "not_web_verified",
       });
 
-      usedLines.push(line);
+      usedLines.push(shortLine);
       added++;
 
-      console.log(`  "${line}" [${position}] -> ${review ? "draft" : slot.toISOString()}`);
+      console.log(`  Product: ${info.product_name || "(not identified)"}`);
+      console.log(`  Clean image copied: ${outRel}`);
       console.log(`  Hashtags: ${DEFAULT_HASHTAGS.join(" ")}`);
+      console.log(`  -> ${review ? "draft" : slot.toISOString()}`);
     } catch (err) {
       console.error(`  FAILED on ${f}: ${err.message}`);
     }

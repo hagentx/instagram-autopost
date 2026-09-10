@@ -12,7 +12,7 @@
 //
 // Cadence (env or GitHub repo Variables):
 //   POST_DAYS      default "MON,TUE,WED,THU,FRI,SAT,SUN"  (daily)
-//   POST_TIME_UTC  default "17:00"  — one OR MORE times, comma-separated, for
+//   POST_TIME_UTC  default "17:00" — one OR MORE times, comma-separated, for
 //                  multiple posts per day, e.g. "13:00,21:00" posts twice daily.
 
 import {
@@ -189,6 +189,100 @@ function extractJson(text) {
   return null;
 }
 
+/**
+ * Returns true when an error is likely temporary and worth retrying.
+ *
+ * Retry:
+ *   408 = request timeout
+ *   429 = rate limit / temporary quota pressure
+ *   500+ = temporary server-side error, including 503 overload
+ */
+function isRetryableGeminiError(err) {
+  const message = String(err?.message || err);
+
+  const match = message.match(
+    /"code"\s*:\s*(\d{3})/
+  );
+
+  if (!match) {
+    return false;
+  }
+
+  const code = Number(match[1]);
+
+  return (
+    code === 408 ||
+    code === 429 ||
+    code >= 500
+  );
+}
+
+/**
+ * Gemini API call with exponential backoff.
+ *
+ * Attempt 1: immediately
+ * Attempt 2: ~2 seconds later
+ * Attempt 3: ~4 seconds later
+ * Attempt 4: ~8 seconds later
+ * Attempt 5: ~16 seconds later
+ *
+ * A small random jitter prevents several simultaneous GitHub Actions
+ * executions from retrying at exactly the same instant.
+ */
+async function callGeminiWithRetry(url, options) {
+  const MAX_ATTEMPTS = 5;
+
+  let lastErr;
+
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    try {
+      console.log(
+        `  Gemini attempt ${attempt}/${MAX_ATTEMPTS}...`
+      );
+
+      const res = await fetch(url, options);
+
+      const data = await res.json();
+
+      if (!res.ok || data.error) {
+        throw new Error(
+          `Gemini API error: ${JSON.stringify(
+            data.error || data
+          )}`
+        );
+      }
+
+      return data;
+    } catch (err) {
+      lastErr = err;
+
+      const retryable = isRetryableGeminiError(err);
+
+      if (!retryable || attempt >= MAX_ATTEMPTS) {
+        throw err;
+      }
+
+      const baseDelay = 2000 * Math.pow(2, attempt - 1);
+
+      const jitter = Math.floor(
+        Math.random() * 1000
+      );
+
+      const delay = baseDelay + jitter;
+
+      console.log(
+        `  Gemini temporary error. Retrying in ${(delay / 1000).toFixed(1)}s...`
+      );
+
+      await new Promise((resolve) =>
+        setTimeout(resolve, delay)
+      );
+    }
+  }
+
+  throw lastErr;
+}
+
 export async function analyzePhoto(
   filePath,
   filename,
@@ -222,6 +316,7 @@ export async function analyzePhoto(
     contents: [
       {
         role: "user",
+
         parts: [
           {
             inlineData: {
@@ -229,6 +324,7 @@ export async function analyzePhoto(
               data: b64,
             },
           },
+
           {
             text: prompt,
           },
@@ -242,77 +338,57 @@ export async function analyzePhoto(
     },
   });
 
-  // Gemini occasionally may return malformed output or a transient error.
-  // Retry a few times before giving up.
-  let lastErr;
+  const url =
+    `https://generativelanguage.googleapis.com/v1beta/models/` +
+    `${encodeURIComponent(config.geminiModel)}:generateContent`;
 
-  for (let attempt = 1; attempt <= 3; attempt++) {
-    try {
-      const url =
-        `https://generativelanguage.googleapis.com/v1beta/models/` +
-        `${encodeURIComponent(config.geminiModel)}:generateContent`;
+  const data = await callGeminiWithRetry(
+    url,
+    {
+      method: "POST",
 
-      const res = await fetch(url, {
-        method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "x-goog-api-key": config.geminiApiKey,
+      },
 
-        headers: {
-          "content-type": "application/json",
-          "x-goog-api-key": config.geminiApiKey,
-        },
-
-        body,
-      });
-
-      const data = await res.json();
-
-      if (!res.ok || data.error) {
-        throw new Error(
-          `Gemini API error: ${JSON.stringify(
-            data.error || data
-          )}`
-        );
-      }
-
-      const text = (data.candidates || [])
-        .flatMap((candidate) => candidate.content?.parts || [])
-        .filter((part) => typeof part.text === "string")
-        .map((part) => part.text)
-        .join("\n")
-        .trim();
-
-      if (!text) {
-        throw new Error(
-          `Gemini returned no text: ${JSON.stringify(data).slice(
-            0,
-            500
-          )}`
-        );
-      }
-
-      const parsed = extractJson(text);
-
-      if (parsed && parsed.line) {
-        return parsed;
-      }
-
-      throw new Error(
-        `Could not parse a valid line from Gemini response: ${text.slice(
-          0,
-          200
-        )}`
-      );
-    } catch (err) {
-      lastErr = err;
-
-      if (attempt < 3) {
-        await new Promise((r) =>
-          setTimeout(r, 800 * attempt)
-        );
-      }
+      body,
     }
+  );
+
+  const text = (data.candidates || [])
+    .flatMap(
+      (candidate) =>
+        candidate.content?.parts || []
+    )
+    .filter(
+      (part) =>
+        typeof part.text === "string"
+    )
+    .map((part) => part.text)
+    .join("\n")
+    .trim();
+
+  if (!text) {
+    throw new Error(
+      `Gemini returned no text: ${JSON.stringify(
+        data
+      ).slice(0, 500)}`
+    );
   }
 
-  throw lastErr;
+  const parsed = extractJson(text);
+
+  if (parsed && parsed.line) {
+    return parsed;
+  }
+
+  throw new Error(
+    `Could not parse a valid line from Gemini response: ${text.slice(
+      0,
+      200
+    )}`
+  );
 }
 
 async function main() {
@@ -323,20 +399,38 @@ async function main() {
     process.env.AUTOPILOT_REVIEW === "true";
 
   if (!existsSync(MEDIA_DIR)) {
-    console.log("No media/ folder — nothing to do.");
+    console.log(
+      "No media/ folder — nothing to do."
+    );
+
     return;
   }
 
   const queue = existsSync(QUEUE_PATH)
-    ? JSON.parse(readFileSync(QUEUE_PATH, "utf8"))
+    ? JSON.parse(
+        readFileSync(
+          QUEUE_PATH,
+          "utf8"
+        )
+      )
     : [];
 
   const brand = existsSync(BRAND_PATH)
-    ? JSON.parse(readFileSync(BRAND_PATH, "utf8"))
+    ? JSON.parse(
+        readFileSync(
+          BRAND_PATH,
+          "utf8"
+        )
+      )
     : {};
 
   const usedLines = existsSync(LINES_PATH)
-    ? JSON.parse(readFileSync(LINES_PATH, "utf8"))
+    ? JSON.parse(
+        readFileSync(
+          LINES_PATH,
+          "utf8"
+        )
+      )
     : [];
 
   // New, postable source photos.
@@ -348,21 +442,34 @@ async function main() {
       (f) => !f.startsWith(".")
     )
   ) {
-    const full = join(MEDIA_DIR, f);
+    const full = join(
+      MEDIA_DIR,
+      f
+    );
 
-    if (statSync(full).isDirectory()) continue;
+    if (statSync(full).isDirectory()) {
+      continue;
+    }
 
     const ext = extname(f).toLowerCase();
 
-    if (![".jpg", ".jpeg", ".png"].includes(ext)) {
+    if (
+      ![".jpg", ".jpeg", ".png"].includes(
+        ext
+      )
+    ) {
       if (f !== "README.md") {
-        console.log(`skip ${f}: not a JPEG/PNG`);
+        console.log(
+          `skip ${f}: not a JPEG/PNG`
+        );
       }
 
       continue;
     }
 
-    if (isQueued(queue, f)) continue;
+    if (isQueued(queue, f)) {
+      continue;
+    }
 
     const size = statSync(full).size;
 
@@ -382,7 +489,10 @@ async function main() {
   candidates.sort();
 
   if (candidates.length === 0) {
-    console.log("No new photos to schedule.");
+    console.log(
+      "No new photos to schedule."
+    );
+
     return;
   }
 
@@ -397,26 +507,35 @@ async function main() {
 
   for (const item of queue) {
     if (
-      (item.status === "scheduled" ||
-        item.status === "published") &&
+      (
+        item.status === "scheduled" ||
+        item.status === "published"
+      ) &&
       item.publish_at
     ) {
       latest = Math.max(
         latest,
-        Date.parse(item.publish_at)
+        Date.parse(
+          item.publish_at
+        )
       );
     }
   }
 
   if (!existsSync(RENDERED_DIR)) {
-    mkdirSync(RENDERED_DIR, { recursive: true });
+    mkdirSync(
+      RENDERED_DIR,
+      { recursive: true }
+    );
   }
 
   let added = 0;
 
   for (const f of candidates) {
     try {
-      console.log(`Analyzing ${f} ...`);
+      console.log(
+        `Analyzing ${f} ...`
+      );
 
       const {
         line,
@@ -432,41 +551,59 @@ async function main() {
 
       // Burn the line onto the photo in the brand font,
       // in the clear band.
-      const outName = `post-${slug(f)}.jpg`;
-      const outRel = `media/rendered/${outName}`;
+      const outName =
+        `post-${slug(f)}.jpg`;
+
+      const outRel =
+        `media/rendered/${outName}`;
 
       await overlayCaption(
         join(MEDIA_DIR, f),
         line,
-        join(RENDERED_DIR, outName),
+        join(
+          RENDERED_DIR,
+          outName
+        ),
         {
           position,
           faceBand: face_band,
         }
       );
 
-      const slot = nextSlot(latest);
+      const slot =
+        nextSlot(latest);
 
-      latest = slot.getTime();
+      latest =
+        slot.getTime();
 
       queue.push({
-        id: `${slot.toISOString().slice(0, 10)}-${slug(f)}`,
+        id:
+          `${slot
+            .toISOString()
+            .slice(0, 10)}-${slug(f)}`,
 
-        status: review
-          ? "draft"
-          : "scheduled",
+        status:
+          review
+            ? "draft"
+            : "scheduled",
 
-        publish_at: slot.toISOString(),
+        publish_at:
+          slot.toISOString(),
 
-        media_type: "IMAGE",
+        media_type:
+          "IMAGE",
 
-        media_url: publicUrlFor(outRel),
+        media_url:
+          publicUrlFor(outRel),
 
-        alt_text: alt_text || line,
+        alt_text:
+          alt_text || line,
 
-        caption: line,
+        caption:
+          line,
 
-        source_file: f,
+        source_file:
+          f,
       });
 
       usedLines.push(line);
@@ -475,9 +612,12 @@ async function main() {
 
       console.log(
         `  "${line}" [${position}] -> ${
-          review ? "draft" : slot.toISOString()
+          review
+            ? "draft"
+            : slot.toISOString()
         }`
       );
+
     } catch (err) {
       console.error(
         `  FAILED on ${f}: ${err.message}`
@@ -488,12 +628,20 @@ async function main() {
   if (added > 0) {
     writeFileSync(
       QUEUE_PATH,
-      JSON.stringify(queue, null, 2) + "\n"
+      JSON.stringify(
+        queue,
+        null,
+        2
+      ) + "\n"
     );
 
     writeFileSync(
       LINES_PATH,
-      JSON.stringify(usedLines, null, 2) + "\n"
+      JSON.stringify(
+        usedLines,
+        null,
+        2
+      ) + "\n"
     );
 
     console.log(
@@ -506,7 +654,8 @@ async function main() {
 
 if (
   process.argv[1] &&
-  import.meta.url === `file://${process.argv[1]}`
+  import.meta.url ===
+    `file://${process.argv[1]}`
 ) {
   main().catch((err) => {
     console.error(err);

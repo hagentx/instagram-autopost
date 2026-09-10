@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": "2026-09-10-cinto-da-xuxa",
+    "status": "scheduled",
+    "publish_at": "2026-09-10T17:00:00.000Z",
+    "media_type": "IMAGE",
+    "media_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-cinto-da-xuxa.jpg",
+    "alt_text": "Embalagem antiga do produto Cinto da Xuxa, com fotografia da Xuxa Sorrindo, ilustração do cachorrinho Xuxo e personagens no estilo dos anos 90.",
+    "caption": "Aquele acessório inesquecível que marcou época no nosso guarda-roupa.",
+    "source_file": "CINTO DA XUXA.jpg"
+  }
+]

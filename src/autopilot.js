@@ -19,6 +19,26 @@ const QUEUE_PATH = join(ROOT, "content", "queue.json");
 const BRAND_PATH = join(ROOT, "brand.json");
 const LINES_PATH = join(ROOT, "content", "lines.json");
 
+// Hashtags fixas do perfil. O Gemini pode acrescentar no máximo algumas
+// hashtags específicas da peça, mas estas permanecem sempre presentes.
+const DEFAULT_HASHTAGS = [
+  "#Xuxa",
+  "#XuxaMeneghel",
+  "#Baixinhos",
+  "#ColecaoXuxa",
+  "#Colecionismo",
+  "#MemoriaAfetiva",
+  "#Nostalgia",
+];
+
+const DEFAULT_KEYWORDS = [
+  "Xuxa Meneghel",
+  "baixinhos",
+  "colecionismo",
+  "memória afetiva",
+  "nostalgia",
+];
+
 const DAY_NAMES = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
 const toMinutes = (t) => {
@@ -100,6 +120,10 @@ function buildVisionSystem(brand) {
     "CONTEXTO DA MARCA:",
     JSON.stringify(brand, null, 2),
     "",
+    "PALAVRAS/CONCEITOS PADRÃO DO PERFIL:",
+    DEFAULT_KEYWORDS.join(", "),
+    "Use naturalmente quando fizer sentido, sem transformar a frase em uma lista de palavras.",
+    "",
     "REGRAS DA FRASE:",
     "- Escreva SEMPRE em português do Brasil.",
     "- Crie uma única frase original com 4 a 13 palavras.",
@@ -107,7 +131,7 @@ function buildVisionSystem(brand) {
     "- A frase pode destacar nostalgia, raridade, memória, época, design, embalagem ou o prazer de colecionar.",
     "- Não invente fatos específicos que não possam ser percebidos na imagem ou fornecidos pelo contexto.",
     "- Não descreva simplesmente a fotografia.",
-    "- Não use hashtags.",
+    "- Não coloque hashtags na frase editorial: as hashtags serão acrescentadas automaticamente pelo sistema.",
     "- Não use emojis.",
     "- Não use aspas.",
     "- Não faça comentários depreciativos, ofensivos ou sexualizados.",
@@ -115,6 +139,11 @@ function buildVisionSystem(brand) {
     "- Não use palavras como cancelled/cancelado, cringe, fracasso ou equivalentes para provocar.",
     "- Não transforme o texto em crítica negativa.",
     "- Não reutilize frases anteriores.",
+    "",
+    "HASHTAGS:",
+    "- Não gere hashtags no campo line.",
+    "- Se houver uma hashtag muito específica e realmente relevante para o item, informe-a em extra_hashtags.",
+    "- Retorne no máximo 3 extra_hashtags.",
     "",
     "POSIÇÃO DO TEXTO:",
     "- A imagem será centralizada/cortada para formato vertical 4:5.",
@@ -126,7 +155,7 @@ function buildVisionSystem(brand) {
     "",
     "SAÍDA:",
     "Retorne SOMENTE JSON válido, sem Markdown e sem explicações.",
-    '{ "line": string, "position": "top" | "bottom", "face_band": { "top": number, "bottom": number }, "alt_text": string }',
+    '{ "line": string, "position": "top" | "bottom", "face_band": { "top": number, "bottom": number }, "alt_text": string, "extra_hashtags": string[] }',
     "alt_text deve ser uma frase factual em português descrevendo a imagem para acessibilidade.",
   ].join("\n");
 }
@@ -194,6 +223,22 @@ async function callGeminiWithRetry(url, options) {
   throw lastErr;
 }
 
+function normalizeHashtags(extraHashtags = []) {
+  const extra = Array.isArray(extraHashtags)
+    ? extraHashtags
+        .filter((h) => typeof h === "string")
+        .map((h) => h.trim().replace(/^#?/, "#"))
+        .filter((h) => /^#[\p{L}\p{N}_]+$/u.test(h))
+        .slice(0, 3)
+    : [];
+
+  return [...new Set([...DEFAULT_HASHTAGS, ...extra])];
+}
+
+function buildCaption(line, extraHashtags) {
+  return `${line}\n\n${normalizeHashtags(extraHashtags).join(" ")}`;
+}
+
 export async function analyzePhoto(filePath, filename, brand, usedLines) {
   const b64 = readFileSync(filePath).toString("base64");
   const ext = extname(filename).toLowerCase();
@@ -201,7 +246,7 @@ export async function analyzePhoto(filePath, filename, brand, usedLines) {
 
   const prompt =
     `Frases já usadas recentemente, que você deve evitar repetir:\n${JSON.stringify(usedLines.slice(-120))}\n\n` +
-    "Analise a fotografia e produza a frase editorial em português e os dados de posicionamento pedidos. A frase deve valorizar a memória afetiva e o colecionismo de Xuxa.";
+    "Analise a fotografia e produza a frase editorial em português, possíveis hashtags específicas e os dados de posicionamento pedidos. A frase deve valorizar a memória afetiva e o colecionismo de Xuxa.";
 
   const body = JSON.stringify({
     systemInstruction: {
@@ -332,7 +377,7 @@ async function main() {
     try {
       console.log(`Analyzing ${f} ...`);
 
-      const { line, position = "top", face_band, alt_text } = await analyzePhoto(
+      const { line, position = "top", face_band, alt_text, extra_hashtags } = await analyzePhoto(
         join(MEDIA_DIR, f),
         f,
         brand,
@@ -341,6 +386,7 @@ async function main() {
 
       const outName = `post-${slug(f)}.jpg`;
       const outRel = `media/rendered/${outName}`;
+      const caption = buildCaption(line, extra_hashtags);
 
       await overlayCaption(
         join(MEDIA_DIR, f),
@@ -359,14 +405,14 @@ async function main() {
         media_type: "IMAGE",
         media_url: publicUrlFor(outRel),
         alt_text: alt_text || line,
-        caption: line,
+        caption,
         source_file: f,
       });
 
       usedLines.push(line);
       added++;
 
-      console.log(`  "${line}" [${position}] -> ${review ? "draft" : slot.toISOString()}`);
+      console.log(`  "${caption}" [${position}] -> ${review ? "draft" : slot.toISOString()}`);
     } catch (err) {
       console.error(`  FAILED on ${f}: ${err.message}`);
     }

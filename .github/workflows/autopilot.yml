@@ -26,7 +26,7 @@ jobs:
       - name: Install renderer dependency
         run: npm install --no-audit --no-fund
 
-      - name: Caption + overlay + schedule new selfies
+      - name: Caption + schedule new selfies
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
@@ -39,10 +39,10 @@ jobs:
       - name: Commit rendered posts + queue
         run: |
           if [[ -n "$(git status --porcelain media/rendered content/)" ]]; then
-            git config user.name "ig-autopilot[bot]"
+            git config user.name "ig-autopost[bot]"
             git config user.email "actions@users.noreply.github.com"
+            git pull --rebase origin ${GITHUB_REF_NAME}
             git add media/rendered content/queue.json content/lines.json
-            git pull --rebase origin ${GITHUB_REF_NAME} || true
             git commit -m "chore: captioned + scheduled new selfies [skip ci]"
             git push
           else

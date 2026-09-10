@@ -1,1 +1,40 @@
-[]
+[
+  {
+    "id": "2026-09-11-cinto-da-xuxa2",
+    "status": "scheduled",
+    "publish_at": "2026-09-11T17:00:00.000Z",
+    "media_type": "IMAGE",
+    "media_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-cinto-da-xuxa2.jpg",
+    "alt_text": "Fotografia de um cinto infantil branco dentro da embalagem plástica blister sobre uma cartela ilustrada do Cinto da Xuxa. A cartela traz uma foto da Xuxa sorrindo no topo, o nome 'CINTO DA XUXA' em letras coloridas, diversos personagens ilustrados e a indicação do tamanho 'M' em um quadrado azul.",
+    "caption": "Cinto da Xuxa\n\nOlha só que relíquia charmosa para quem ama guardar cada pedacinho da história da nossa Rainha dos Baixinhos!\n\n📌 Item: Cinto da Xuxa\n📌 Ano impresso: 1993\n📌 Licenciamento: Xuxa Produções e Promoções Artísticas Ltda.\n📌 Tamanho indicado: M\n📌 Ilustrações da embalagem: Foto da Xuxa e personagens como o cachorro Praft, o Moderninho e lagartinha com cenouras\n📌 Estampa do cinto: Personagem surfando na prancha de surfe, ondas e peixinhos\n\n⭐ Curiosidade: O próprio cinto é estampado com um personagem surfando, combinando perfeitamente com as ilustrações coloridas da cartela.\n\nEncontrar uma peça dessas ainda preservada na embalagem é pura magia para qualquer colecionador.\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
+    "source_file": "CINTO DA XUXA2.jpg",
+    "product_name": "Cinto da Xuxa",
+    "observed_details": [
+      {
+        "label": "Item",
+        "value": "Cinto da Xuxa"
+      },
+      {
+        "label": "Ano impresso",
+        "value": "1993"
+      },
+      {
+        "label": "Licenciamento",
+        "value": "Xuxa Produções e Promoções Artísticas Ltda."
+      },
+      {
+        "label": "Tamanho indicado",
+        "value": "M"
+      },
+      {
+        "label": "Ilustrações da embalagem",
+        "value": "Foto da Xuxa e personagens como o cachorro Praft, o Moderninho e lagartinha com cenouras"
+      },
+      {
+        "label": "Estampa do cinto",
+        "value": "Personagem surfando na prancha de surfe, ondas e peixinhos"
+      }
+    ],
+    "research_status": "not_web_verified"
+  }
+]

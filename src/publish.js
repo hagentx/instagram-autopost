@@ -14,11 +14,14 @@ import {
   createCarouselContainer,
   waitForContainer,
   publishContainer,
+  createMediaComment,
   getPublishingLimit,
 } from "./instagram.js";
 
 const QUEUE_PATH = join(ROOT, "content", "queue.json");
 const DRY_RUN = process.argv.includes("--dry-run");
+const DEFAULT_MENTION = "@xuxamenegheloficial";
+const DEFAULT_COMMENT = `Com carinho para a eterna Rainha dos Baixinhos: ${DEFAULT_MENTION}`;
 
 /** Turn "media/hat.jpg" into a full URL using MEDIA_BASE_URL; pass URLs through. */
 function resolveMedia(urlOrPath) {
@@ -116,6 +119,21 @@ async function main() {
       item.status = "published";
       item.published_at = new Date().toISOString();
       item.media_id = mediaId;
+
+      // The mention is deliberately best-effort: if the Instagram app/token
+      // lacks comment-management permission, the post itself remains published.
+      try {
+        const comment = item.comment || DEFAULT_COMMENT;
+        await createMediaComment(mediaId, comment);
+        item.comment = comment;
+        item.comment_status = "published";
+        console.log(`  OK comment added: ${comment}`);
+      } catch (commentErr) {
+        item.comment_status = "error";
+        item.comment_error = String(commentErr.message || commentErr);
+        console.warn(`  WARNING: post published, but mention comment failed: ${item.comment_error}`);
+      }
+
       changed = true;
       console.log(`  OK published as media ${mediaId}`);
     } catch (err) {

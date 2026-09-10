@@ -44,7 +44,12 @@ export const config = {
   igApiVersion: process.env.IG_API_VERSION || "v22.0",
   igGraphHost: process.env.IG_GRAPH_HOST || "https://graph.instagram.com",
 
-  // Anthropic (caption generation)
+  // Gemini (caption generation)
+  geminiApiKey: process.env.GEMINI_API_KEY || "",
+  geminiModel: process.env.GEMINI_MODEL || "gemini-2.5-flash",
+
+  // Anthropic (legacy compatibility)
+  // Kept here so other parts of the original project do not break.
   anthropicApiKey: process.env.ANTHROPIC_API_KEY || "",
   anthropicModel: process.env.ANTHROPIC_MODEL || "claude-sonnet-5",
 
@@ -62,6 +67,14 @@ export function requireIgConfig() {
     throw new Error(
       `Missing required env var(s): ${missing.join(", ")}. ` +
         `Set them in .env locally or as GitHub Secrets in CI.`
+    );
+  }
+}
+
+export function requireGeminiConfig() {
+  if (!config.geminiApiKey) {
+    throw new Error(
+      "Missing GEMINI_API_KEY. Set it in .env locally or as a GitHub Secret."
     );
   }
 }

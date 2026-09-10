@@ -1,16 +1,11 @@
 [
   {
-    "id": "2026-09-10-cinto-da-xuxa",
-    "status": "published",
-    "publish_at": "2026-09-10T17:00:00.000Z",
+    "id": "2026-09-10-cinto-da-xuxa-teste-2",
+    "status": "scheduled",
+    "publish_at": "2026-09-10T18:30:00.000Z",
     "media_type": "IMAGE",
     "media_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-cinto-da-xuxa.jpg",
     "alt_text": "Embalagem antiga do produto Cinto da Xuxa, com fotografia da Xuxa Sorrindo, ilustração do cachorrinho Xuxo e personagens no estilo dos anos 90.",
-    "caption": "Aquele acessório inesquecível que marcou época no nosso guarda-roupa.",
-    "source_file": "CINTO DA XUXA.jpg",
-    "published_at": "2026-09-10T17:37:11.941Z",
-    "media_id": "18216755803353518",
-    "comment_status": "error",
-    "comment_error": "IG POST /18216755803353518/comments failed: {\"message\":\"Application does not have permission for this action\",\"type\":\"IGApiException\",\"code\":10,\"fbtrace_id\":\"AS9-jc0Dl-7n6CMABYsjGwv\"}"
+    "caption": ""
   }
 ]

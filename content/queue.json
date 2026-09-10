@@ -1,7 +1,7 @@
 [
   {
     "id": "2026-09-10-cinto-da-xuxa2-teste",
-    "status": "scheduled",
+    "status": "published",
     "publish_at": "2026-09-10T23:00:00.000Z",
     "media_type": "IMAGE",
     "media_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-cinto-da-xuxa2.jpg",
@@ -10,13 +10,35 @@
     "source_file": "CINTO DA XUXA2.jpg",
     "product_name": "Cinto da Xuxa",
     "observed_details": [
-      {"label":"Item","value":"Cinto da Xuxa"},
-      {"label":"Ano impresso","value":"1993"},
-      {"label":"Licenciamento","value":"Xuxa Produções e Promoções Artísticas Ltda."},
-      {"label":"Tamanho indicado","value":"M"},
-      {"label":"Ilustrações da embalagem","value":"Foto da Xuxa e personagens como o cachorro Xuxo, o Moderninho Praga e Dengue."},
-      {"label":"Estampa do cinto","value":"Praga surfando na prancha de surfe, ondas e peixinhos."}
+      {
+        "label": "Item",
+        "value": "Cinto da Xuxa"
+      },
+      {
+        "label": "Ano impresso",
+        "value": "1993"
+      },
+      {
+        "label": "Licenciamento",
+        "value": "Xuxa Produções e Promoções Artísticas Ltda."
+      },
+      {
+        "label": "Tamanho indicado",
+        "value": "M"
+      },
+      {
+        "label": "Ilustrações da embalagem",
+        "value": "Foto da Xuxa e personagens como o cachorro Xuxo, o Moderninho Praga e Dengue."
+      },
+      {
+        "label": "Estampa do cinto",
+        "value": "Praga surfando na prancha de surfe, ondas e peixinhos."
+      }
     ],
-    "research_status": "not_web_verified"
+    "research_status": "not_web_verified",
+    "published_at": "2026-09-10T23:08:36.832Z",
+    "media_id": "18118170901959170",
+    "comment_status": "error",
+    "comment_error": "IG POST /18118170901959170/comments failed: {\"message\":\"Application does not have permission for this action\",\"type\":\"IGApiException\",\"code\":10,\"fbtrace_id\":\"AVERYQm4C45GYNe95FGvHzw\"}"
   }
 ]

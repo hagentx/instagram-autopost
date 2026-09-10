@@ -51,9 +51,13 @@ jobs:
           if [[ -n "$(git status --porcelain media/rendered content/)" ]]; then
             git config user.name "ig-autopost[bot]"
             git config user.email "actions@users.noreply.github.com"
-            git pull --rebase origin ${GITHUB_REF_NAME}
+
+            # Commit local changes before rebasing so the index is clean.
             git add media/rendered content/queue.json content/lines.json
             git commit -m "chore: captioned + scheduled new selfies [skip ci]"
+
+            # Rebase the local commit on any newer remote commit, then push.
+            git pull --rebase origin ${GITHUB_REF_NAME}
             git push
           else
             echo "No new posts to commit."

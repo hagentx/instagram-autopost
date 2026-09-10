@@ -19,24 +19,35 @@ const QUEUE_PATH = join(ROOT, "content", "queue.json");
 const BRAND_PATH = join(ROOT, "brand.json");
 const LINES_PATH = join(ROOT, "content", "lines.json");
 
-// Hashtags fixas do perfil. O Gemini pode acrescentar no máximo algumas
-// hashtags específicas da peça, mas estas permanecem sempre presentes.
+// Instagram permite até 5 hashtags por publicação.
+// Estas são as cinco hashtags principais e entram sempre, sem exceção.
 const DEFAULT_HASHTAGS = [
-  "#Xuxa",
-  "#XuxaMeneghel",
-  "#Baixinhos",
-  "#ColecaoXuxa",
-  "#Colecionismo",
-  "#MemoriaAfetiva",
-  "#Nostalgia",
+  "#colexão",
+  "#xuxinha",
+  "#rainhadosbaixinhos",
+  "#colecionismo",
+  "#xuxa",
 ];
 
+// Vocabulário editorial permanente. Não são hashtags obrigatórias:
+// servem para orientar o Gemini a usar estes termos naturalmente quando forem pertinentes.
 const DEFAULT_KEYWORDS = [
   "Xuxa Meneghel",
-  "baixinhos",
-  "colecionismo",
-  "memória afetiva",
-  "nostalgia",
+  "coleção X",
+  "Xou da Xuxa",
+  "Planeta Xuxa",
+  "Que Xou da Xuxa é esse",
+  "Filmes da Xuxa",
+  "Sessão X",
+  "Pôster da Xuxa",
+  "Boneca da Xuxa",
+  "Xuxinha",
+  "mimo",
+  "brinquedos Mimo",
+  "boneca Xuxa da Estrela",
+  "brinquedos Estrela",
+  "Grow Brasil",
+  "CDs da Xuxa",
 ];
 
 const DAY_NAMES = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
@@ -122,7 +133,7 @@ function buildVisionSystem(brand) {
     "",
     "PALAVRAS/CONCEITOS PADRÃO DO PERFIL:",
     DEFAULT_KEYWORDS.join(", "),
-    "Use naturalmente quando fizer sentido, sem transformar a frase em uma lista de palavras.",
+    "Use estes termos naturalmente quando fizer sentido para a imagem. Não transforme a frase em uma lista de palavras.",
     "",
     "REGRAS DA FRASE:",
     "- Escreva SEMPRE em português do Brasil.",
@@ -131,7 +142,7 @@ function buildVisionSystem(brand) {
     "- A frase pode destacar nostalgia, raridade, memória, época, design, embalagem ou o prazer de colecionar.",
     "- Não invente fatos específicos que não possam ser percebidos na imagem ou fornecidos pelo contexto.",
     "- Não descreva simplesmente a fotografia.",
-    "- Não coloque hashtags na frase editorial: as hashtags serão acrescentadas automaticamente pelo sistema.",
+    "- Não coloque hashtags na frase editorial: as cinco hashtags padrão serão acrescentadas automaticamente pelo sistema.",
     "- Não use emojis.",
     "- Não use aspas.",
     "- Não faça comentários depreciativos, ofensivos ou sexualizados.",
@@ -139,11 +150,6 @@ function buildVisionSystem(brand) {
     "- Não use palavras como cancelled/cancelado, cringe, fracasso ou equivalentes para provocar.",
     "- Não transforme o texto em crítica negativa.",
     "- Não reutilize frases anteriores.",
-    "",
-    "HASHTAGS:",
-    "- Não gere hashtags no campo line.",
-    "- Se houver uma hashtag muito específica e realmente relevante para o item, informe-a em extra_hashtags.",
-    "- Retorne no máximo 3 extra_hashtags.",
     "",
     "POSIÇÃO DO TEXTO:",
     "- A imagem será centralizada/cortada para formato vertical 4:5.",
@@ -155,7 +161,7 @@ function buildVisionSystem(brand) {
     "",
     "SAÍDA:",
     "Retorne SOMENTE JSON válido, sem Markdown e sem explicações.",
-    '{ "line": string, "position": "top" | "bottom", "face_band": { "top": number, "bottom": number }, "alt_text": string, "extra_hashtags": string[] }',
+    '{ "line": string, "position": "top" | "bottom", "face_band": { "top": number, "bottom": number }, "alt_text": string }',
     "alt_text deve ser uma frase factual em português descrevendo a imagem para acessibilidade.",
   ].join("\n");
 }
@@ -223,20 +229,8 @@ async function callGeminiWithRetry(url, options) {
   throw lastErr;
 }
 
-function normalizeHashtags(extraHashtags = []) {
-  const extra = Array.isArray(extraHashtags)
-    ? extraHashtags
-        .filter((h) => typeof h === "string")
-        .map((h) => h.trim().replace(/^#?/, "#"))
-        .filter((h) => /^#[\p{L}\p{N}_]+$/u.test(h))
-        .slice(0, 3)
-    : [];
-
-  return [...new Set([...DEFAULT_HASHTAGS, ...extra])];
-}
-
-function buildCaption(line, extraHashtags) {
-  return `${line}\n\n${normalizeHashtags(extraHashtags).join(" ")}`;
+function buildCaption(line) {
+  return `${line}\n\n${DEFAULT_HASHTAGS.join(" ")}`;
 }
 
 export async function analyzePhoto(filePath, filename, brand, usedLines) {
@@ -246,7 +240,7 @@ export async function analyzePhoto(filePath, filename, brand, usedLines) {
 
   const prompt =
     `Frases já usadas recentemente, que você deve evitar repetir:\n${JSON.stringify(usedLines.slice(-120))}\n\n` +
-    "Analise a fotografia e produza a frase editorial em português, possíveis hashtags específicas e os dados de posicionamento pedidos. A frase deve valorizar a memória afetiva e o colecionismo de Xuxa.";
+    "Analise a fotografia e produza a frase editorial em português e os dados de posicionamento pedidos. A frase deve valorizar a memória afetiva e o colecionismo de Xuxa.";
 
   const body = JSON.stringify({
     systemInstruction: {
@@ -377,7 +371,7 @@ async function main() {
     try {
       console.log(`Analyzing ${f} ...`);
 
-      const { line, position = "top", face_band, alt_text, extra_hashtags } = await analyzePhoto(
+      const { line, position = "top", face_band, alt_text } = await analyzePhoto(
         join(MEDIA_DIR, f),
         f,
         brand,
@@ -386,7 +380,7 @@ async function main() {
 
       const outName = `post-${slug(f)}.jpg`;
       const outRel = `media/rendered/${outName}`;
-      const caption = buildCaption(line, extra_hashtags);
+      const caption = buildCaption(line);
 
       await overlayCaption(
         join(MEDIA_DIR, f),
@@ -412,7 +406,8 @@ async function main() {
       usedLines.push(line);
       added++;
 
-      console.log(`  "${caption}" [${position}] -> ${review ? "draft" : slot.toISOString()}`);
+      console.log(`  "${line}" [${position}] -> ${review ? "draft" : slot.toISOString()}`);
+      console.log(`  Hashtags: ${DEFAULT_HASHTAGS.join(" ")}`);
     } catch (err) {
       console.error(`  FAILED on ${f}: ${err.message}`);
     }

@@ -28,6 +28,8 @@ const DEFAULT_HASHTAGS = [
   "#xuxa",
 ];
 
+const DEFAULT_MENTION = "@xuxameneghel";
+
 // Vocabulário editorial permanente. São palavras/conceitos, não hashtags.
 const DEFAULT_KEYWORDS = [
   "Xuxa Meneghel",
@@ -89,7 +91,44 @@ export function nextSlot(afterMs, cad = cadence) {
 }
 
 export function isQueued(queue, filename) {
-  return queue.some((item) => item.source_file === filename);
+  return queue.some((item) => {
+    if (item.source_file === filename) return true;
+    if (Array.isArray(item.source_files) && item.source_files.includes(filename)) return true;
+    return false;
+  });
+}
+
+function carouselGroupKey(filename) {
+  const stem = filename.replace(/\.[^.]+$/, "");
+  const match = stem.match(/^(.*?)(?:[ _-]?(\d{2}))$/);
+  return match ? match[1].trim() : stem.trim();
+}
+
+function carouselOrder(filename) {
+  const stem = filename.replace(/\.[^.]+$/, "");
+  const match = stem.match(/(?:[ _-]?(\d{2}))$/);
+  return match ? Number(match[1]) : 1;
+}
+
+export function groupMediaCandidates(files) {
+  const groups = new Map();
+
+  for (const filename of files) {
+    const key = carouselGroupKey(filename);
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(filename);
+  }
+
+  return [...groups.values()]
+    .map((group) =>
+      group.sort((a, b) => {
+        const ao = carouselOrder(a);
+        const bo = carouselOrder(b);
+        if (ao !== bo) return ao - bo;
+        return a.localeCompare(b);
+      })
+    )
+    .sort((a, b) => a[0].localeCompare(b[0]));
 }
 
 export function publicUrlFor(relPath) {
@@ -123,8 +162,10 @@ function slug(s) {
 function buildVisionSystem(brand) {
   return [
     "Você é o assistente editorial de um perfil brasileiro de colecionismo dedicado à Xuxa.",
-    "Você receberá uma fotografia de uma peça, produto, revista, embalagem ou item relacionado à coleção.",
+    "Você receberá uma ou mais fotografias da mesma peça, produto, revista, embalagem ou item relacionado à coleção.",
+    "Quando houver várias fotografias, elas mostram o mesmo produto por ângulos diferentes. Analise o conjunto como uma única peça e consolide os dados em uma única legenda.",
     "A fotografia NÃO deve receber nenhum texto, desenho ou sobreposição. Ela será publicada limpa, preservando o produto original.",
+    "A ordem das fotografias já foi definida pelo nome dos arquivos e NÃO deve ser alterada pelo modelo.",
     "",
     "OBJETIVO:",
     "Criar uma legenda de Instagram mais rica, informativa e agradável para colecionadores, combinando uma abertura afetiva com dados do produto que possam ser comprovados pela própria fotografia.",
@@ -258,19 +299,31 @@ function buildCaption(info) {
   if (details.length) parts.push(details.join("\n"));
   if (curiosity) parts.push(`⭐ Curiosidade: ${curiosity}`);
   if (closing) parts.push(closing);
+  parts.push(DEFAULT_MENTION);
   parts.push(DEFAULT_HASHTAGS.join(" "));
 
   return parts.join("\n\n");
 }
 
-export async function analyzePhoto(filePath, filename, brand, usedLines) {
-  const b64 = readFileSync(filePath).toString("base64");
-  const ext = extname(filename).toLowerCase();
-  const mediaType = ext === ".png" ? "image/png" : "image/jpeg";
+export async function analyzePhotos(filePaths, filenames, brand, usedLines) {
+  const mediaParts = filePaths.map((filePath, index) => {
+    const filename = filenames[index];
+    const b64 = readFileSync(filePath).toString("base64");
+    const ext = extname(filename).toLowerCase();
+    const mediaType = ext === ".png" ? "image/png" : "image/jpeg";
+
+    return {
+      inlineData: {
+        mimeType: mediaType,
+        data: b64,
+      },
+    };
+  });
 
   const prompt =
+    `Arquivos na ordem do carrossel: ${JSON.stringify(filenames)}\n` +
     `Legendas anteriores, para evitar repetir ideias: ${JSON.stringify(usedLines.slice(-80))}\n\n` +
-    "Analise cuidadosamente a fotografia. Extraia apenas fatos que estejam visíveis e legíveis. Depois redija a estrutura solicitada. Se não houver evidência suficiente para um dado, deixe-o vazio. NÃO invente informações para tornar a legenda mais completa.";
+    "Analise cuidadosamente TODAS as fotografias como um único produto. Consolide os dados visíveis entre os ângulos. Extraia apenas fatos que estejam visíveis e legíveis. Depois redija a estrutura solicitada. Se não houver evidência suficiente para um dado, deixe-o vazio. NÃO invente informações para tornar a legenda mais completa.";
 
   const body = JSON.stringify({
     systemInstruction: {
@@ -280,12 +333,7 @@ export async function analyzePhoto(filePath, filename, brand, usedLines) {
       {
         role: "user",
         parts: [
-          {
-            inlineData: {
-              mimeType: mediaType,
-              data: b64,
-            },
-          },
+          ...mediaParts,
           { text: prompt },
         ],
       },
@@ -357,7 +405,7 @@ async function main() {
     ? JSON.parse(readFileSync(LINES_PATH, "utf8"))
     : [];
 
-  const candidates = [];
+  const candidateFiles = [];
 
   for (const f of readdirSync(MEDIA_DIR).filter((f) => !f.startsWith("."))) {
     const full = join(MEDIA_DIR, f);
@@ -373,17 +421,24 @@ async function main() {
       continue;
     }
 
-    candidates.push(f);
+    candidateFiles.push(f);
   }
 
-  candidates.sort();
+  candidateFiles.sort();
 
-  if (candidates.length === 0) {
+  if (candidateFiles.length === 0) {
     console.log("No new photos to schedule.");
     return;
   }
 
-  console.log(`Found ${candidates.length} new photo(s): ${candidates.join(", ")}`);
+  const groups = groupMediaCandidates(candidateFiles);
+
+  console.log(
+    `Found ${candidateFiles.length} new photo(s) in ${groups.length} product group(s).`
+  );
+  for (const group of groups) {
+    console.log(`  ${group.length > 1 ? "CAROUSEL" : "IMAGE"}: ${group.join(", ")}`);
+  }
 
   let latest = Date.now();
   for (const item of queue) {
@@ -396,48 +451,72 @@ async function main() {
 
   let added = 0;
 
-  for (const f of candidates) {
+  for (const group of groups) {
     try {
-      console.log(`Analyzing ${f} ...`);
+      const isCarousel = group.length >= 2;
+      console.log(
+        `Analyzing ${isCarousel ? "carousel" : "photo"}: ${group.join(", ")} ...`
+      );
 
-      const info = await analyzePhoto(join(MEDIA_DIR, f), f, brand, usedLines);
+      const info = await analyzePhotos(
+        group.map((f) => join(MEDIA_DIR, f)),
+        group,
+        brand,
+        usedLines
+      );
       const caption = buildCaption(info);
-      const outExt = extname(f).toLowerCase() === ".png" ? ".png" : ".jpg";
-      const outName = `post-${slug(f)}${outExt}`;
-      const outRel = `media/rendered/${outName}`;
 
-      // IMPORTANT: the published image is an untouched copy of the original.
-      // Gemini text is never rendered over the product photo.
-      copyFileSync(join(MEDIA_DIR, f), join(RENDERED_DIR, outName));
+      const renderedItems = [];
+      for (const f of group) {
+        const outExt = extname(f).toLowerCase() === ".png" ? ".png" : ".jpg";
+        const outName = `post-${slug(f)}${outExt}`;
+        const outRel = `media/rendered/${outName}`;
+
+        // IMPORTANT: published images are untouched copies of the originals.
+        copyFileSync(join(MEDIA_DIR, f), join(RENDERED_DIR, outName));
+        renderedItems.push({
+          image_url: publicUrlFor(outRel),
+        });
+      }
 
       const slot = nextSlot(latest);
       latest = slot.getTime();
 
       const shortLine = clean(info.intro) || clean(info.product_name) || "Peça da coleção Xuxa";
 
-      queue.push({
-        id: `${slot.toISOString().slice(0, 10)}-${slug(f)}`,
+      const queueItem = {
+        id: `${slot.toISOString().slice(0, 10)}-${slug(group[0])}`,
         status: review ? "draft" : "scheduled",
         publish_at: slot.toISOString(),
-        media_type: "IMAGE",
-        media_url: publicUrlFor(outRel),
-        alt_text: clean(info.alt_text) || clean(info.product_name) || "Item da coleção Xuxa.",
+        media_type: isCarousel ? "CAROUSEL" : "IMAGE",
         caption,
-        source_file: f,
+        source_file: group[0],
+        source_files: group,
         product_name: clean(info.product_name),
         observed_details: Array.isArray(info.details) ? info.details : [],
         research_status: "not_web_verified",
-      });
+      };
+
+      if (isCarousel) {
+        queueItem.items = renderedItems;
+      } else {
+        queueItem.media_url = renderedItems[0].image_url;
+        queueItem.alt_text =
+          clean(info.alt_text) || clean(info.product_name) || "Item da coleção Xuxa.";
+      }
+
+      queue.push(queueItem);
 
       usedLines.push(shortLine);
       added++;
 
       console.log(`  Product: ${info.product_name || "(not identified)"}`);
-      console.log(`  Clean image copied: ${outRel}`);
+      console.log(`  Clean ${isCarousel ? "carousel images" : "image"} copied.`);
+      console.log(`  Mention: ${DEFAULT_MENTION}`);
       console.log(`  Hashtags: ${DEFAULT_HASHTAGS.join(" ")}`);
       console.log(`  -> ${review ? "draft" : slot.toISOString()}`);
     } catch (err) {
-      console.error(`  FAILED on ${f}: ${err.message}`);
+      console.error(`  FAILED on ${group.join(", ")}: ${err.message}`);
     }
   }
 

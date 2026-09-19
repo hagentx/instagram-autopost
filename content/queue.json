@@ -43,7 +43,7 @@
   },
   {
     "id": "2026-09-19-xuxinha88-01",
-    "status": "scheduled",
+    "status": "published",
     "publish_at": "2026-09-19T17:00:00.000Z",
     "media_type": "CAROUSEL",
     "caption": "Boneca Xuxinha - Um Xou de Charme\n\nMais uma joia nostálgica que abrilhanta qualquer acervo da nossa Rainha! A boneca Xuxinha na caixa original é pura magia em forma de colecionável.\n\n📌 Fabricante: Brinquedos Mimo S.A.\n📌 Linha/Título: Xuxinha - Um Xou de Charme\n📌 Referência do modelo: 9.0659.0\n📌 Traje: Conjunto prateado brilhante de jaqueta e short com botas brancas\n📌 Licenciamento: © Xuxa Produções\n📌 Características da linha: Articulada da cabeça aos pés\n\n⭐ Curiosidade: A embalagem destaca que a coleção da Xuxinha foi lançada em oito versões de figurinos diferentes, com as referências fotografadas nas laterais da caixa.\n\nUm item clássico da Mimo que preserva toda a essência e o carinho da infância.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
@@ -103,6 +103,10 @@
       {
         "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha88-06.png"
       }
-    ]
+    ],
+    "published_at": "2026-09-19T17:46:28.187Z",
+    "media_id": "18096058538662182",
+    "comment_status": "error",
+    "comment_error": "IG POST /18096058538662182/comments failed: {\"message\":\"Application does not have permission for this action\",\"type\":\"IGApiException\",\"code\":10,\"fbtrace_id\":\"ALQsrs_4TD0N3Sh0JClKdtV\"}"
   }
 ]

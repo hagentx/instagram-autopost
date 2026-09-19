@@ -40,5 +40,69 @@
     "media_id": "18118170901959170",
     "comment_status": "error",
     "comment_error": "IG POST /18118170901959170/comments failed: {\"message\":\"Application does not have permission for this action\",\"type\":\"IGApiException\",\"code\":10,\"fbtrace_id\":\"AVERYQm4C45GYNe95FGvHzw\"}"
+  },
+  {
+    "id": "2026-09-19-xuxinha88-01",
+    "status": "scheduled",
+    "publish_at": "2026-09-19T17:00:00.000Z",
+    "media_type": "CAROUSEL",
+    "caption": "Boneca Xuxinha - Um Xou de Charme\n\nMais uma joia nostálgica que abrilhanta qualquer acervo da nossa Rainha! A boneca Xuxinha na caixa original é pura magia em forma de colecionável.\n\n📌 Fabricante: Brinquedos Mimo S.A.\n📌 Linha/Título: Xuxinha - Um Xou de Charme\n📌 Referência do modelo: 9.0659.0\n📌 Traje: Conjunto prateado brilhante de jaqueta e short com botas brancas\n📌 Licenciamento: © Xuxa Produções\n📌 Características da linha: Articulada da cabeça aos pés\n\n⭐ Curiosidade: A embalagem destaca que a coleção da Xuxinha foi lançada em oito versões de figurinos diferentes, com as referências fotografadas nas laterais da caixa.\n\nUm item clássico da Mimo que preserva toda a essência e o carinho da infância.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
+    "source_file": "Xuxinha88_01.png",
+    "source_files": [
+      "Xuxinha88_01.png",
+      "Xuxinha88_02.png",
+      "Xuxinha88_03.png",
+      "Xuxinha88_04.png",
+      "Xuxinha88_05.png",
+      "Xuxinha88_06.png"
+    ],
+    "product_name": "Boneca Xuxinha - Um Xou de Charme",
+    "observed_details": [
+      {
+        "label": "Fabricante",
+        "value": "Brinquedos Mimo S.A."
+      },
+      {
+        "label": "Linha/Título",
+        "value": "Xuxinha - Um Xou de Charme"
+      },
+      {
+        "label": "Referência do modelo",
+        "value": "9.0659.0"
+      },
+      {
+        "label": "Traje",
+        "value": "Conjunto prateado brilhante de jaqueta e short com botas brancas"
+      },
+      {
+        "label": "Licenciamento",
+        "value": "© Xuxa Produções"
+      },
+      {
+        "label": "Características da linha",
+        "value": "Articulada da cabeça aos pés"
+      }
+    ],
+    "research_status": "not_web_verified",
+    "items": [
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha88-01.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha88-02.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha88-03.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha88-04.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha88-05.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha88-06.png"
+      }
+    ]
   }
 ]

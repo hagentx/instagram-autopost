@@ -108,5 +108,141 @@
     "media_id": "18096058538662182",
     "comment_status": "error",
     "comment_error": "IG POST /18096058538662182/comments failed: {\"message\":\"Application does not have permission for this action\",\"type\":\"IGApiException\",\"code\":10,\"fbtrace_id\":\"ALQsrs_4TD0N3Sh0JClKdtV\"}"
+  },
+  {
+    "id": "2026-09-21-xuxinha-geracao-90-modelo1-01",
+    "status": "scheduled",
+    "publish_at": "2026-09-21T17:00:00.000Z",
+    "media_type": "CAROUSEL",
+    "caption": "Boneca Xuxinha Geração 90\n\nMais um ícone da moda dos anos 90 reunido na nossa coleção! Essa versão com look felino é puro charme em cada detalhe.\n\n📌 Fabricante: Brinquedos Mimo S.A.\n📌 Linha: Xuxinha Geração 90\n📌 Código do modelo: 9.0735.1\n📌 Origem: Indústria Brasileira (Made in Brazil)\n📌 Licenciamento: © Xuxa Produções\n📌 Figurino: Conjunto com estampa de felino amarela e preta, saia e cinto pretos, com botas combinando\n📌 Material: Material plástico, articulado\n\n⭐ Curiosidade: O verso da embalagem mostra a coleção completa composta por 6 modelos exclusivos inspirados na alta moda.\n\nUm verdadeiro tesouro da Mimo preservado na caixa original para encantar os colecionadores.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
+    "source_file": "Xuxinha_geracao_90_modelo1_01.png",
+    "source_files": [
+      "Xuxinha_geracao_90_modelo1_01.png",
+      "Xuxinha_geracao_90_modelo1_02.png",
+      "Xuxinha_geracao_90_modelo1_03.png",
+      "Xuxinha_geracao_90_modelo1_04.png",
+      "Xuxinha_geracao_90_modelo1_05.png",
+      "Xuxinha_geracao_90_modelo1_06.png"
+    ],
+    "product_name": "Boneca Xuxinha Geração 90",
+    "observed_details": [
+      {
+        "label": "Fabricante",
+        "value": "Brinquedos Mimo S.A."
+      },
+      {
+        "label": "Linha",
+        "value": "Xuxinha Geração 90"
+      },
+      {
+        "label": "Código do modelo",
+        "value": "9.0735.1"
+      },
+      {
+        "label": "Origem",
+        "value": "Indústria Brasileira (Made in Brazil)"
+      },
+      {
+        "label": "Licenciamento",
+        "value": "© Xuxa Produções"
+      },
+      {
+        "label": "Figurino",
+        "value": "Conjunto com estampa de felino amarela e preta, saia e cinto pretos, com botas combinando"
+      },
+      {
+        "label": "Material",
+        "value": "Material plástico, articulado"
+      }
+    ],
+    "research_status": "not_web_verified",
+    "items": [
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-geracao-90-modelo1-01.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-geracao-90-modelo1-02.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-geracao-90-modelo1-03.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-geracao-90-modelo1-04.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-geracao-90-modelo1-05.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-geracao-90-modelo1-06.png"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-22-xuxinha-geracao-90-modelo2-01",
+    "status": "scheduled",
+    "publish_at": "2026-09-22T17:00:00.000Z",
+    "media_type": "CAROUSEL",
+    "caption": "Boneca Xuxinha Geração 90\n\nUma verdadeira joia da nossa infância preservada em sua embalagem original! A linha Xuxinha Geração 90 traz toda a elegância e estilo marcante dos anos noventa.\n\n📌 Linha: Xuxinha Geração 90\n📌 Fabricante: Brinquedos Mimo S.A.\n📌 Referência do Modelo: 9.0736.0\n📌 País de Fabricação: Brasil (Made in Brazil)\n📌 Licenciamento: © Xuxa Produções\n📌 Figurino: Colete preto, camisa branca, gravata listrada, saia verde com babados e botas pretas até o joelho\n📌 Material: Plástico articulado\n\n⭐ Curiosidade: A embalagem destaca no verso toda a coleção composta por 6 modelos exclusivos inspirados na alta moda.\n\nUm item histórico inesquecível para abrilhantar qualquer acervo dedicado à nossa Rainha.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
+    "source_file": "Xuxinha_geracao_90_modelo2_01.png",
+    "source_files": [
+      "Xuxinha_geracao_90_modelo2_01.png",
+      "Xuxinha_geracao_90_modelo2_02.png",
+      "Xuxinha_geracao_90_modelo2_03.png",
+      "Xuxinha_geracao_90_modelo2_04.png",
+      "Xuxinha_geracao_90_modelo2_05.png",
+      "Xuxinha_geracao_90_modelo2_06.png"
+    ],
+    "product_name": "Boneca Xuxinha Geração 90",
+    "observed_details": [
+      {
+        "label": "Linha",
+        "value": "Xuxinha Geração 90"
+      },
+      {
+        "label": "Fabricante",
+        "value": "Brinquedos Mimo S.A."
+      },
+      {
+        "label": "Referência do Modelo",
+        "value": "9.0736.0"
+      },
+      {
+        "label": "País de Fabricação",
+        "value": "Brasil (Made in Brazil)"
+      },
+      {
+        "label": "Licenciamento",
+        "value": "© Xuxa Produções"
+      },
+      {
+        "label": "Figurino",
+        "value": "Colete preto, camisa branca, gravata listrada, saia verde com babados e botas pretas até o joelho"
+      },
+      {
+        "label": "Material",
+        "value": "Plástico articulado"
+      }
+    ],
+    "research_status": "not_web_verified",
+    "items": [
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-geracao-90-modelo2-01.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-geracao-90-modelo2-02.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-geracao-90-modelo2-03.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-geracao-90-modelo2-04.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-geracao-90-modelo2-05.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-geracao-90-modelo2-06.png"
+      }
+    ]
   }
 ]

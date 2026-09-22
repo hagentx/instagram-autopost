@@ -183,7 +183,7 @@
   },
   {
     "id": "2026-09-22-xuxinha-geracao-90-modelo2-01",
-    "status": "scheduled",
+    "status": "published",
     "publish_at": "2026-09-22T17:00:00.000Z",
     "media_type": "CAROUSEL",
     "caption": "Boneca Xuxinha Geração 90\n\nUma verdadeira joia da nossa infância preservada em sua embalagem original! A linha Xuxinha Geração 90 traz toda a elegância e estilo marcante dos anos noventa.\n\n📌 Linha: Xuxinha Geração 90\n📌 Fabricante: Brinquedos Mimo S.A.\n📌 Referência do Modelo: 9.0736.0\n📌 País de Fabricação: Brasil (Made in Brazil)\n📌 Licenciamento: © Xuxa Produções\n📌 Figurino: Colete preto, camisa branca, gravata listrada, saia verde com babados e botas pretas até o joelho\n📌 Material: Plástico articulado\n\n⭐ Curiosidade: A embalagem destaca no verso toda a coleção composta por 6 modelos exclusivos inspirados na alta moda.\n\nUm item histórico inesquecível para abrilhantar qualquer acervo dedicado à nossa Rainha.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
@@ -247,6 +247,10 @@
       {
         "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-geracao-90-modelo2-06.png"
       }
-    ]
+    ],
+    "published_at": "2026-09-22T19:49:31.380Z",
+    "media_id": "17896128525607356",
+    "comment_status": "error",
+    "comment_error": "IG POST /17896128525607356/comments failed: {\"message\":\"Application does not have permission for this action\",\"type\":\"IGApiException\",\"code\":10,\"fbtrace_id\":\"Aa1jaHT7TQTP11972zufnT0\"}"
   }
 ]

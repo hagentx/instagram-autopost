@@ -252,5 +252,366 @@
     "media_id": "17896128525607356",
     "comment_status": "error",
     "comment_error": "IG POST /17896128525607356/comments failed: {\"message\":\"Application does not have permission for this action\",\"type\":\"IGApiException\",\"code\":10,\"fbtrace_id\":\"Aa1jaHT7TQTP11972zufnT0\"}"
+  },
+  {
+    "id": "2026-09-26-xuxinha-romantica-modelo1-01",
+    "status": "scheduled",
+    "publish_at": "2026-09-26T17:00:00.000Z",
+    "media_type": "CAROUSEL",
+    "caption": "Boneca Xuxa Romântica Mimo\n\nOlha que lindeza essa boneca Xuxa da linha Romântica, novinha na caixa! Um verdadeiro clássico com visual campestre que encanta qualquer acervo.\n\n📌 Fabricante: Brinquedos Mimo S.A.\n📌 Linha: Romântica\n📌 Referência do modelo: 9.0775.1\n📌 Origem: Indústria Brasileira (Made in Brazil)\n📌 Traje: Blusa branca com mangas bufantes, colete floral com detalhes amarelos e pretos, saia amarela rodada e anágua com renda\n📌 Acessórios e detalhes: Cesta amarela com flores, trança lateral com laço preto e sapatos pretos\n\n⭐ Curiosidade: O verso da embalagem indica que a coleção Romântica é composta por 5 versões diferentes, trazendo textos descritivos em português e espanhol.\n\nPreservar uma peça tão detalhada e cheia de carinho assim na embalagem original é manter viva a magia da nossa infância.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
+    "source_file": "Xuxinha_Romantica_modelo1_01.png",
+    "source_files": [
+      "Xuxinha_Romantica_modelo1_01.png",
+      "Xuxinha_Romantica_modelo1_02.png",
+      "Xuxinha_Romantica_modelo1_03.png",
+      "Xuxinha_Romantica_modelo1_04.png",
+      "Xuxinha_Romantica_modelo1_05.png",
+      "Xuxinha_Romantica_modelo1_06.png"
+    ],
+    "product_name": "Boneca Xuxa Romântica Mimo",
+    "observed_details": [
+      {
+        "label": "Fabricante",
+        "value": "Brinquedos Mimo S.A."
+      },
+      {
+        "label": "Linha",
+        "value": "Romântica"
+      },
+      {
+        "label": "Referência do modelo",
+        "value": "9.0775.1"
+      },
+      {
+        "label": "Origem",
+        "value": "Indústria Brasileira (Made in Brazil)"
+      },
+      {
+        "label": "Traje",
+        "value": "Blusa branca com mangas bufantes, colete floral com detalhes amarelos e pretos, saia amarela rodada e anágua com renda"
+      },
+      {
+        "label": "Acessórios e detalhes",
+        "value": "Cesta amarela com flores, trança lateral com laço preto e sapatos pretos"
+      }
+    ],
+    "research_status": "not_web_verified",
+    "items": [
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-romantica-modelo1-01.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-romantica-modelo1-02.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-romantica-modelo1-03.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-romantica-modelo1-04.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-romantica-modelo1-05.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-romantica-modelo1-06.png"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-27-xuxinha-ver-o-modelo-1-01",
+    "status": "scheduled",
+    "publish_at": "2026-09-27T17:00:00.000Z",
+    "media_type": "CAROUSEL",
+    "caption": "Boneca Xuxinha Verão\n\nOlha que espetáculo de relíquia na caixa original! A linha Xuxinha Verão é cheia de estilo e traz toda a energia marcante dos brinquedos da Mimo.\n\n📌 Linha: Xuxinha Verão\n📌 Fabricante: Brinquedos Mimo S/A\n📌 Código de referência: 9.0689.0\n📌 Material: Plástico (articulada)\n📌 Origem: Indústria Brasileira (Made in Brazil)\n📌 Traje da peça: Blusa listrada em preto e branco, saia branca com botões duplos e botas pretas de cano alto\n📌 Licenciamento: © Xuxa Produções\n\n⭐ Curiosidade: As laterais da embalagem exibem a coleção completa com seus respectivos códigos de referência, mostrando todas as 11 variações de figurinos da linha.\n\nUm item fascinante que preserva intacta a memória dos colecionáveis da Rainha.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
+    "source_file": "Xuxinha_verão_modelo_1_01.png",
+    "source_files": [
+      "Xuxinha_verão_modelo_1_01.png",
+      "Xuxinha_verão_modelo_1_02.png",
+      "Xuxinha_verão_modelo_1_03.png",
+      "Xuxinha_verão_modelo_1_04.png",
+      "Xuxinha_verão_modelo_1_05.png",
+      "Xuxinha_verão_modelo_1_06.png"
+    ],
+    "product_name": "Boneca Xuxinha Verão",
+    "observed_details": [
+      {
+        "label": "Linha",
+        "value": "Xuxinha Verão"
+      },
+      {
+        "label": "Fabricante",
+        "value": "Brinquedos Mimo S/A"
+      },
+      {
+        "label": "Código de referência",
+        "value": "9.0689.0"
+      },
+      {
+        "label": "Material",
+        "value": "Plástico (articulada)"
+      },
+      {
+        "label": "Origem",
+        "value": "Indústria Brasileira (Made in Brazil)"
+      },
+      {
+        "label": "Traje da peça",
+        "value": "Blusa listrada em preto e branco, saia branca com botões duplos e botas pretas de cano alto"
+      },
+      {
+        "label": "Licenciamento",
+        "value": "© Xuxa Produções"
+      }
+    ],
+    "research_status": "not_web_verified",
+    "items": [
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-1-01.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-1-02.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-1-03.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-1-04.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-1-05.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-1-06.png"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-28-xuxinha-ver-o-modelo-2-01",
+    "status": "scheduled",
+    "publish_at": "2026-09-28T17:00:00.000Z",
+    "media_type": "CAROUSEL",
+    "caption": "Boneca Xuxinha Verão\n\nQue alegria ver mais uma lindeza da Mimo preservada na caixa original! Esse figurino solar traz um carinho enorme pra nossa coleção.\n\n📌 Fabricante: Brinquedos Mimo S/A\n📌 Origem: Indústria Brasileira (Itu - SP)\n📌 Linha: Xuxinha Verão\n📌 Traje: Maiô branco com a escrita 'XUX' e babado verde\n📌 Embalagem: Caixa com visor transparente e ilustração de sol\n\n⭐ Curiosidade: As laterais da embalagem exibem fotos dos outros modelos da coleção acompanhados de seus respectivos códigos de referência.\n\nCada detalhe conservado na caixa é um pedacinho da nossa infância mantido vivo com muito carinho.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
+    "source_file": "Xuxinha_verão_modelo_2_01.png",
+    "source_files": [
+      "Xuxinha_verão_modelo_2_01.png",
+      "Xuxinha_verão_modelo_2_03.png",
+      "Xuxinha_verão_modelo_2_04.png",
+      "Xuxinha_verão_modelo_2_05.png",
+      "Xuxinha_verão_modelo_2_06.png"
+    ],
+    "product_name": "Boneca Xuxinha Verão",
+    "observed_details": [
+      {
+        "label": "Fabricante",
+        "value": "Brinquedos Mimo S/A"
+      },
+      {
+        "label": "Origem",
+        "value": "Indústria Brasileira (Itu - SP)"
+      },
+      {
+        "label": "Linha",
+        "value": "Xuxinha Verão"
+      },
+      {
+        "label": "Traje",
+        "value": "Maiô branco com a escrita 'XUX' e babado verde"
+      },
+      {
+        "label": "Embalagem",
+        "value": "Caixa com visor transparente e ilustração de sol"
+      }
+    ],
+    "research_status": "not_web_verified",
+    "items": [
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-2-01.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-2-03.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-2-04.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-2-05.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-2-06.png"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29-xuxinha-ver-o-modelo-2-02-copia",
+    "status": "scheduled",
+    "publish_at": "2026-09-29T17:00:00.000Z",
+    "media_type": "IMAGE",
+    "caption": "Boneca Xuxinha Verão\n\nA energia e o colorido da linha Xuxinha Verão estampados na embalagem original da Mimo! Uma verdadeira viagem no tempo para quem ama os brinquedos clássicos.\n\n📌 Linha: Xuxinha Verão\n📌 Fabricante: Mimo\n📌 Licenciamento: Xuxa Produções\n📌 Material: Plástico (articulada)\n📌 Modelos da coleção: 11 versões delicadas\n\n⭐ Curiosidade: O verso da caixa destaca que a coleção conta com 11 versões diferentes e traz uma foto reunindo todas as bonecas da linha vestidas com trajes de praia e verão.\n\nGuardar uma embalagem assim é preservar cada detalhe do carinho e da magia da nossa infância.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
+    "source_file": "Xuxinha_verão_modelo_2_02 - Copia.png",
+    "source_files": [
+      "Xuxinha_verão_modelo_2_02 - Copia.png"
+    ],
+    "product_name": "Boneca Xuxinha Verão",
+    "observed_details": [
+      {
+        "label": "Linha",
+        "value": "Xuxinha Verão"
+      },
+      {
+        "label": "Fabricante",
+        "value": "Mimo"
+      },
+      {
+        "label": "Licenciamento",
+        "value": "Xuxa Produções"
+      },
+      {
+        "label": "Material",
+        "value": "Plástico (articulada)"
+      },
+      {
+        "label": "Modelos da coleção",
+        "value": "11 versões delicadas"
+      }
+    ],
+    "research_status": "not_web_verified",
+    "media_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-2-02-copia.png",
+    "alt_text": "Verso da embalagem da boneca Xuxinha Verão da Mimo. A caixa branca possui linhas verticais, o logotipo colorido 'Xuxinha Verão' e um texto explicativo. Na parte inferior, há uma fotografia demonstrando as 11 bonecas da coleção com trajes de banho e roupas de verão, além do logotipo da Mimo e da marca Xuxa Produções."
+  },
+  {
+    "id": "2026-09-30-xuxinha-ver-o-modelo-3-01",
+    "status": "scheduled",
+    "publish_at": "2026-09-30T17:00:00.000Z",
+    "media_type": "CAROUSEL",
+    "caption": "Boneca Xuxinha Verão\n\nMais uma integrante radiante da coleção Xuxinha Verão preservada na embalagem original! Um verdadeiro clássico de encher os olhos de qualquer colecionador.\n\n📌 Fabricante: Brinquedos Mimo S/A\n📌 Linha: Xuxinha Verão\n📌 Referência do modelo: 9.0682.0\n📌 Origem: Indústria Brasileira (Itu - SP)\n📌 Características da boneca: Articulada, feita em material plástico\n📌 Figurino: Macacão vermelho com cinto preto e blusa preta com estampa de sorvete\n📌 Licenciamento impresso: © Xuxa Produções\n\n⭐ Curiosidade: A embalagem destaca que a linha conta com 11 delicadas versões para brincar e colecionar, com as fotos de todos os modelos estampadas nas laterais e no verso da caixa.\n\nUma raridade cheia de charme que mantém viva a magia dos brinquedos clássicos no nosso acervo.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
+    "source_file": "Xuxinha_verão_modelo_3_01.png",
+    "source_files": [
+      "Xuxinha_verão_modelo_3_01.png",
+      "Xuxinha_verão_modelo_3_02.png",
+      "Xuxinha_verão_modelo_3_03.png",
+      "Xuxinha_verão_modelo_3_04.png",
+      "Xuxinha_verão_modelo_3_05.png",
+      "Xuxinha_verão_modelo_3_06.png"
+    ],
+    "product_name": "Boneca Xuxinha Verão",
+    "observed_details": [
+      {
+        "label": "Fabricante",
+        "value": "Brinquedos Mimo S/A"
+      },
+      {
+        "label": "Linha",
+        "value": "Xuxinha Verão"
+      },
+      {
+        "label": "Referência do modelo",
+        "value": "9.0682.0"
+      },
+      {
+        "label": "Origem",
+        "value": "Indústria Brasileira (Itu - SP)"
+      },
+      {
+        "label": "Características da boneca",
+        "value": "Articulada, feita em material plástico"
+      },
+      {
+        "label": "Figurino",
+        "value": "Macacão vermelho com cinto preto e blusa preta com estampa de sorvete"
+      },
+      {
+        "label": "Licenciamento impresso",
+        "value": "© Xuxa Produções"
+      }
+    ],
+    "research_status": "not_web_verified",
+    "items": [
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-3-01.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-3-02.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-3-03.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-3-04.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-3-05.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-3-06.png"
+      }
+    ]
+  },
+  {
+    "id": "2026-10-01-xuxinha-xou-de-xarme-01",
+    "status": "scheduled",
+    "publish_at": "2026-10-01T17:00:00.000Z",
+    "media_type": "CAROUSEL",
+    "caption": "Boneca Xuxinha Um Xou de Xarme - Ref. 9.0724.6\n\nUma relíquia impecável na embalagem original para encantar os apaixonados pelos brinquedos Mimo! Um verdadeiro tesouro no acervo.\n\n📌 Produto: Boneca Xuxinha\n📌 Linha: Um Xou de Xarme / Alto astral\n📌 Fabricante: Brinquedos Mimo S.A.\n📌 Referência: 9.0724.6\n📌 Origem: Indústria Brasileira\n📌 Características: Boneca articulada em material plástico\n📌 Faixa Etária: Para crianças acima de 3 anos\n\n⭐ Curiosidade: As laterais e o verso da embalagem apresentam fotos dos outros modelos e figurinos que compõem a coleção de bonecas Xuxinha com suas respectivas referências.\n\nPreservar uma peça como esta é manter viva a magia e a essência da nossa infância.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
+    "source_file": "Xuxinha_xou_de_xarme_01.png",
+    "source_files": [
+      "Xuxinha_xou_de_xarme_01.png",
+      "Xuxinha_xou_de_xarme_02.png",
+      "Xuxinha_xou_de_xarme_03.png",
+      "Xuxinha_xou_de_xarme_04.png",
+      "Xuxinha_xou_de_xarme_05.png",
+      "Xuxinha_xou_de_xarme_06.png"
+    ],
+    "product_name": "Boneca Xuxinha Um Xou de Xarme - Ref. 9.0724.6",
+    "observed_details": [
+      {
+        "label": "Produto",
+        "value": "Boneca Xuxinha"
+      },
+      {
+        "label": "Linha",
+        "value": "Um Xou de Xarme / Alto astral"
+      },
+      {
+        "label": "Fabricante",
+        "value": "Brinquedos Mimo S.A."
+      },
+      {
+        "label": "Referência",
+        "value": "9.0724.6"
+      },
+      {
+        "label": "Origem",
+        "value": "Indústria Brasileira"
+      },
+      {
+        "label": "Características",
+        "value": "Boneca articulada em material plástico"
+      },
+      {
+        "label": "Faixa Etária",
+        "value": "Para crianças acima de 3 anos"
+      }
+    ],
+    "research_status": "not_web_verified",
+    "items": [
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-xou-de-xarme-01.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-xou-de-xarme-02.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-xou-de-xarme-03.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-xou-de-xarme-04.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-xou-de-xarme-05.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-xou-de-xarme-06.png"
+      }
+    ]
   }
 ]

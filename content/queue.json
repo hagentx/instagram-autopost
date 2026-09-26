@@ -255,7 +255,7 @@
   },
   {
     "id": "2026-09-26-xuxinha-romantica-modelo1-01",
-    "status": "scheduled",
+    "status": "published",
     "publish_at": "2026-09-26T17:00:00.000Z",
     "media_type": "CAROUSEL",
     "caption": "Boneca Xuxa Romântica Mimo\n\nOlha que lindeza essa boneca Xuxa da linha Romântica, novinha na caixa! Um verdadeiro clássico com visual campestre que encanta qualquer acervo.\n\n📌 Fabricante: Brinquedos Mimo S.A.\n📌 Linha: Romântica\n📌 Referência do modelo: 9.0775.1\n📌 Origem: Indústria Brasileira (Made in Brazil)\n📌 Traje: Blusa branca com mangas bufantes, colete floral com detalhes amarelos e pretos, saia amarela rodada e anágua com renda\n📌 Acessórios e detalhes: Cesta amarela com flores, trança lateral com laço preto e sapatos pretos\n\n⭐ Curiosidade: O verso da embalagem indica que a coleção Romântica é composta por 5 versões diferentes, trazendo textos descritivos em português e espanhol.\n\nPreservar uma peça tão detalhada e cheia de carinho assim na embalagem original é manter viva a magia da nossa infância.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
@@ -315,7 +315,11 @@
       {
         "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-romantica-modelo1-06.png"
       }
-    ]
+    ],
+    "published_at": "2026-09-26T19:00:14.730Z",
+    "media_id": "18127621013497886",
+    "comment_status": "error",
+    "comment_error": "IG POST /18127621013497886/comments failed: {\"message\":\"Application does not have permission for this action\",\"type\":\"IGApiException\",\"code\":10,\"fbtrace_id\":\"AV83t6vTPT26rkjmvDAAMs0\"}"
   },
   {
     "id": "2026-09-27-xuxinha-ver-o-modelo-1-01",

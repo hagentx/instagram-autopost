@@ -323,7 +323,7 @@
   },
   {
     "id": "2026-09-27-xuxinha-ver-o-modelo-1-01",
-    "status": "scheduled",
+    "status": "published",
     "publish_at": "2026-09-27T17:00:00.000Z",
     "media_type": "CAROUSEL",
     "caption": "Boneca Xuxinha Verão\n\nOlha que espetáculo de relíquia na caixa original! A linha Xuxinha Verão é cheia de estilo e traz toda a energia marcante dos brinquedos da Mimo.\n\n📌 Linha: Xuxinha Verão\n📌 Fabricante: Brinquedos Mimo S/A\n📌 Código de referência: 9.0689.0\n📌 Material: Plástico (articulada)\n📌 Origem: Indústria Brasileira (Made in Brazil)\n📌 Traje da peça: Blusa listrada em preto e branco, saia branca com botões duplos e botas pretas de cano alto\n📌 Licenciamento: © Xuxa Produções\n\n⭐ Curiosidade: As laterais da embalagem exibem a coleção completa com seus respectivos códigos de referência, mostrando todas as 11 variações de figurinos da linha.\n\nUm item fascinante que preserva intacta a memória dos colecionáveis da Rainha.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
@@ -387,7 +387,11 @@
       {
         "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-1-06.png"
       }
-    ]
+    ],
+    "published_at": "2026-09-27T19:32:40.145Z",
+    "media_id": "18078359537381066",
+    "comment_status": "error",
+    "comment_error": "IG POST /18078359537381066/comments failed: {\"message\":\"Application does not have permission for this action\",\"type\":\"IGApiException\",\"code\":10,\"fbtrace_id\":\"A2-mJd7RhnL5Ga_fwNi_Orr\"}"
   },
   {
     "id": "2026-09-28-xuxinha-ver-o-modelo-2-01",

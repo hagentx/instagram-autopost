@@ -395,7 +395,7 @@
   },
   {
     "id": "2026-09-28-xuxinha-ver-o-modelo-2-01",
-    "status": "scheduled",
+    "status": "published",
     "publish_at": "2026-09-28T17:00:00.000Z",
     "media_type": "CAROUSEL",
     "caption": "Boneca Xuxinha Verão\n\nQue alegria ver mais uma lindeza da Mimo preservada na caixa original! Esse figurino solar traz um carinho enorme pra nossa coleção.\n\n📌 Fabricante: Brinquedos Mimo S/A\n📌 Origem: Indústria Brasileira (Itu - SP)\n📌 Linha: Xuxinha Verão\n📌 Traje: Maiô branco com a escrita 'XUX' e babado verde\n📌 Embalagem: Caixa com visor transparente e ilustração de sol\n\n⭐ Curiosidade: As laterais da embalagem exibem fotos dos outros modelos da coleção acompanhados de seus respectivos códigos de referência.\n\nCada detalhe conservado na caixa é um pedacinho da nossa infância mantido vivo com muito carinho.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
@@ -447,7 +447,11 @@
       {
         "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-2-06.png"
       }
-    ]
+    ],
+    "published_at": "2026-09-28T21:36:13.943Z",
+    "media_id": "18031959776849618",
+    "comment_status": "error",
+    "comment_error": "IG POST /18031959776849618/comments failed: {\"message\":\"Application does not have permission for this action\",\"type\":\"IGApiException\",\"code\":10,\"fbtrace_id\":\"A3_vMEOUn-cbIZFTx0zeW0D\"}"
   },
   {
     "id": "2026-09-29-xuxinha-ver-o-modelo-2-02-copia",

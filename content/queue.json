@@ -455,7 +455,7 @@
   },
   {
     "id": "2026-09-29-xuxinha-ver-o-modelo-2-02-copia",
-    "status": "scheduled",
+    "status": "published",
     "publish_at": "2026-09-29T17:00:00.000Z",
     "media_type": "IMAGE",
     "caption": "Boneca Xuxinha Verão\n\nA energia e o colorido da linha Xuxinha Verão estampados na embalagem original da Mimo! Uma verdadeira viagem no tempo para quem ama os brinquedos clássicos.\n\n📌 Linha: Xuxinha Verão\n📌 Fabricante: Mimo\n📌 Licenciamento: Xuxa Produções\n📌 Material: Plástico (articulada)\n📌 Modelos da coleção: 11 versões delicadas\n\n⭐ Curiosidade: O verso da caixa destaca que a coleção conta com 11 versões diferentes e traz uma foto reunindo todas as bonecas da linha vestidas com trajes de praia e verão.\n\nGuardar uma embalagem assim é preservar cada detalhe do carinho e da magia da nossa infância.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
@@ -488,7 +488,11 @@
     ],
     "research_status": "not_web_verified",
     "media_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-2-02-copia.png",
-    "alt_text": "Verso da embalagem da boneca Xuxinha Verão da Mimo. A caixa branca possui linhas verticais, o logotipo colorido 'Xuxinha Verão' e um texto explicativo. Na parte inferior, há uma fotografia demonstrando as 11 bonecas da coleção com trajes de banho e roupas de verão, além do logotipo da Mimo e da marca Xuxa Produções."
+    "alt_text": "Verso da embalagem da boneca Xuxinha Verão da Mimo. A caixa branca possui linhas verticais, o logotipo colorido 'Xuxinha Verão' e um texto explicativo. Na parte inferior, há uma fotografia demonstrando as 11 bonecas da coleção com trajes de banho e roupas de verão, além do logotipo da Mimo e da marca Xuxa Produções.",
+    "published_at": "2026-09-29T19:33:47.483Z",
+    "media_id": "18112117913168178",
+    "comment_status": "error",
+    "comment_error": "IG POST /18112117913168178/comments failed: {\"message\":\"Application does not have permission for this action\",\"type\":\"IGApiException\",\"code\":10,\"fbtrace_id\":\"AOUPEhknIHB-nGXnfvE2ISk\"}"
   },
   {
     "id": "2026-09-30-xuxinha-ver-o-modelo-3-01",

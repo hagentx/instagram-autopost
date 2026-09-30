@@ -496,7 +496,7 @@
   },
   {
     "id": "2026-09-30-xuxinha-ver-o-modelo-3-01",
-    "status": "scheduled",
+    "status": "published",
     "publish_at": "2026-09-30T17:00:00.000Z",
     "media_type": "CAROUSEL",
     "caption": "Boneca Xuxinha Verão\n\nMais uma integrante radiante da coleção Xuxinha Verão preservada na embalagem original! Um verdadeiro clássico de encher os olhos de qualquer colecionador.\n\n📌 Fabricante: Brinquedos Mimo S/A\n📌 Linha: Xuxinha Verão\n📌 Referência do modelo: 9.0682.0\n📌 Origem: Indústria Brasileira (Itu - SP)\n📌 Características da boneca: Articulada, feita em material plástico\n📌 Figurino: Macacão vermelho com cinto preto e blusa preta com estampa de sorvete\n📌 Licenciamento impresso: © Xuxa Produções\n\n⭐ Curiosidade: A embalagem destaca que a linha conta com 11 delicadas versões para brincar e colecionar, com as fotos de todos os modelos estampadas nas laterais e no verso da caixa.\n\nUma raridade cheia de charme que mantém viva a magia dos brinquedos clássicos no nosso acervo.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
@@ -560,7 +560,11 @@
       {
         "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-ver-o-modelo-3-06.png"
       }
-    ]
+    ],
+    "published_at": "2026-09-30T20:32:59.240Z",
+    "media_id": "18165268189480878",
+    "comment_status": "error",
+    "comment_error": "IG POST /18165268189480878/comments failed: {\"message\":\"Application does not have permission for this action\",\"type\":\"IGApiException\",\"code\":10,\"fbtrace_id\":\"AeiSh21fS1j1pKd6iLpmrHq\"}"
   },
   {
     "id": "2026-10-01-xuxinha-xou-de-xarme-01",

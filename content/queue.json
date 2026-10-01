@@ -568,7 +568,7 @@
   },
   {
     "id": "2026-10-01-xuxinha-xou-de-xarme-01",
-    "status": "scheduled",
+    "status": "published",
     "publish_at": "2026-10-01T17:00:00.000Z",
     "media_type": "CAROUSEL",
     "caption": "Boneca Xuxinha Um Xou de Xarme - Ref. 9.0724.6\n\nUma relíquia impecável na embalagem original para encantar os apaixonados pelos brinquedos Mimo! Um verdadeiro tesouro no acervo.\n\n📌 Produto: Boneca Xuxinha\n📌 Linha: Um Xou de Xarme / Alto astral\n📌 Fabricante: Brinquedos Mimo S.A.\n📌 Referência: 9.0724.6\n📌 Origem: Indústria Brasileira\n📌 Características: Boneca articulada em material plástico\n📌 Faixa Etária: Para crianças acima de 3 anos\n\n⭐ Curiosidade: As laterais e o verso da embalagem apresentam fotos dos outros modelos e figurinos que compõem a coleção de bonecas Xuxinha com suas respectivas referências.\n\nPreservar uma peça como esta é manter viva a magia e a essência da nossa infância.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
@@ -632,7 +632,11 @@
       {
         "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-xou-de-xarme-06.png"
       }
-    ]
+    ],
+    "published_at": "2026-10-01T19:17:07.740Z",
+    "media_id": "18111331676604767",
+    "comment_status": "error",
+    "comment_error": "IG POST /18111331676604767/comments failed: {\"message\":\"Application does not have permission for this action\",\"type\":\"IGApiException\",\"code\":10,\"fbtrace_id\":\"AVfb3jQ541IWOH5ENcNHGv6\"}"
   },
   {
     "id": "2026-10-02-modelo-117-01",

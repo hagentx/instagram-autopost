@@ -640,7 +640,7 @@
   },
   {
     "id": "2026-10-02-modelo-117-01",
-    "status": "scheduled",
+    "status": "published",
     "publish_at": "2026-10-02T17:00:00.000Z",
     "media_type": "CAROUSEL",
     "caption": "Bonecos Xuxa e os Duendes 2: No Caminho das Fadas - Kira e Prof. Rafa\n\nDireto do universo mágico do cinema para o acervo! Uma dupla inesquecível reuniu a duende Kira e o Professor Rafa na mesma embalagem.\n\n📌 Produto: Xuxa e Pinoc Baixa (Kira e Prof. Rafa)\n📌 Fabricante: Multibrink\n📌 Linha / Filme: Xuxa e os Duendes 2 - No Caminho das Fadas\n📌 Código / Referência: 0112\n📌 Código de Barras: 7891027301597\n📌 Certificação: INMETRO (CE-GSC-083 / 94)\n📌 Personagens Incluídos: Kira e Prof. Rafa\n\n⭐ Curiosidade: A embalagem traz o selo de apoio à Fundação Assistencial Xuxa Meneghel no verso, além de uma foto da Xuxa caracterizada como a duende Kira na lateral da caixa.\n\nUm item repleto de encanto que preserva a magia dos filmes da Xuxa na coleção. 🧚✨\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
@@ -704,6 +704,10 @@
       {
         "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-modelo-117-06.png"
       }
-    ]
+    ],
+    "published_at": "2026-10-02T20:05:43.358Z",
+    "media_id": "18150664540542860",
+    "comment_status": "error",
+    "comment_error": "IG POST /18150664540542860/comments failed: {\"message\":\"Application does not have permission for this action\",\"type\":\"IGApiException\",\"code\":10,\"fbtrace_id\":\"Afz0IHc_8HBlSwT_7hlXJ69\"}"
   }
 ]

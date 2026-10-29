@@ -709,5 +709,157 @@
     "media_id": "18150664540542860",
     "comment_status": "error",
     "comment_error": "IG POST /18150664540542860/comments failed: {\"message\":\"Application does not have permission for this action\",\"type\":\"IGApiException\",\"code\":10,\"fbtrace_id\":\"Afz0IHc_8HBlSwT_7hlXJ69\"}"
+  },
+  {
+    "id": "2026-10-29-copo-festcolor-2000-01",
+    "status": "scheduled",
+    "publish_at": "2026-10-29T17:00:00.000Z",
+    "media_type": "CAROUSEL",
+    "caption": "Copo Xuxa Festcolor\n\nDetalhes de festa que deixavam qualquer comemoração ainda mais especial! Um clássico item de aniversário preservado no pacote lacrado.\n\n📌 Item: Copos plásticos para festa\n📌 Fabricante: Festcolor Argos S.A.\n📌 Quantidade: Embalagem contendo 10 unidades\n📌 Licenciamento: © Xuxa Produções\n📌 Identificação no rótulo: COPO - XUXA\n📌 Origem: Indústria Brasileira\n📌 Código de barras: 7891279303090\n\n⭐ Curiosidade: A arte estampada traz a ilustração da Xuxa de cabelo curto ao lado do nome em letras coloridas sobre fundo de balões.\n\nGuardar itens de festa ainda na embalagem original é preservar a memória viva das celebrações da nossa infância.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
+    "source_file": "Copo_festcolor_2000_01.jpg",
+    "source_files": [
+      "Copo_festcolor_2000_01.jpg",
+      "Copo_festcolor_2000_02.jpg",
+      "Copo_festcolor_2000_03.png"
+    ],
+    "product_name": "Copo Xuxa Festcolor",
+    "observed_details": [
+      {
+        "label": "Item",
+        "value": "Copos plásticos para festa"
+      },
+      {
+        "label": "Fabricante",
+        "value": "Festcolor Argos S.A."
+      },
+      {
+        "label": "Quantidade",
+        "value": "Embalagem contendo 10 unidades"
+      },
+      {
+        "label": "Licenciamento",
+        "value": "© Xuxa Produções"
+      },
+      {
+        "label": "Identificação no rótulo",
+        "value": "COPO - XUXA"
+      },
+      {
+        "label": "Origem",
+        "value": "Indústria Brasileira"
+      },
+      {
+        "label": "Código de barras",
+        "value": "7891279303090"
+      }
+    ],
+    "research_status": "not_web_verified",
+    "items": [
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-copo-festcolor-2000-01.jpg"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-copo-festcolor-2000-02.jpg"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-copo-festcolor-2000-03.png"
+      }
+    ]
+  },
+  {
+    "id": "2026-10-30-embalagem-de-adesivos-de-espuma-xuxa-fes",
+    "status": "scheduled",
+    "publish_at": "2026-10-30T17:00:00.000Z",
+    "media_type": "CAROUSEL",
+    "caption": "Decoração de Festa Xou de Fexta da Xuxa - Festcolor\n\nPara transformar qualquer aniversário em um verdadeiro sonho infantil! Um item de decoração de festa preservado na embalagem original da Festcolor.\n\n📌 Linha / Título: Xou de Fexta da Xuxa\n📌 Fabricante: Festcolor Ind. e Comércio Ltda.\n📌 Quantidade: Contém 10 unidades\n📌 Licenciamento: © XUXA Produções\n📌 Origem: Indústria Brasileira (São Paulo)\n📌 Elementos ilustrados: Ilustração da Xuxa, sorvete gigante, pirulito, cogumelo e personagem verde\n\n⭐ Curiosidade: O cabeçalho da embalagem traz a grafia estilizada 'Xou de Fexta', brincando com o sotaque e o universo do programa.\n\nGuardar uma peça dessas no acervo é manter viva a memória das festas de aniversário mais alegres da nossa infância.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
+    "source_file": "Embalagem de Adesivos de Espuma Xuxa Festcolor 1988_01.png",
+    "source_files": [
+      "Embalagem de Adesivos de Espuma Xuxa Festcolor 1988_01.png",
+      "Embalagem de Adesivos de Espuma Xuxa Festcolor 1988_02.png"
+    ],
+    "product_name": "Decoração de Festa Xou de Fexta da Xuxa - Festcolor",
+    "observed_details": [
+      {
+        "label": "Linha / Título",
+        "value": "Xou de Fexta da Xuxa"
+      },
+      {
+        "label": "Fabricante",
+        "value": "Festcolor Ind. e Comércio Ltda."
+      },
+      {
+        "label": "Quantidade",
+        "value": "Contém 10 unidades"
+      },
+      {
+        "label": "Licenciamento",
+        "value": "© XUXA Produções"
+      },
+      {
+        "label": "Origem",
+        "value": "Indústria Brasileira (São Paulo)"
+      },
+      {
+        "label": "Elementos ilustrados",
+        "value": "Ilustração da Xuxa, sorvete gigante, pirulito, cogumelo e personagem verde"
+      }
+    ],
+    "research_status": "not_web_verified",
+    "items": [
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-embalagem-de-adesivos-de-espuma-xuxa-fes.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-embalagem-de-adesivos-de-espuma-xuxa-fes.png"
+      }
+    ]
+  },
+  {
+    "id": "2026-10-31-guardanapo-kit-festa-festcolor-2000-01",
+    "status": "scheduled",
+    "publish_at": "2026-10-31T17:00:00.000Z",
+    "media_type": "CAROUSEL",
+    "caption": "Guardanapos de Papel Festcolor Xuxa\n\nOlha que riqueza de detalhe para transformar qualquer comemoração em um momento mágico! Esse pacote de guardanapos de papel traz estampas super fofas e temáticas.\n\n📌 Marca / Fabricante: Festcolor (Lesticor Artigos S.A.)\n📌 Origem: Indústria Brasileira\n📌 Código de Barras: 7 966037 199003\n📌 Estampa Frontal: Nome XUXA em destaque rosa, assinatura Xuxa com beijo e desenhos de sol, nuvens e borboletas\n📌 Borda: Detalhe decorativo rendado em tom rosa de ambos os lados\n📌 Embalagem: Pacote plástico lacrado com etiqueta rosa da fabricante\n\n⭐ Curiosidade: Além do nome XUXA em grafia estilo grafite, a estampa traz a clássica marca registrada da Rainha com a assinatura sobre a marca de um beijo e o coração estilizado.\n\nPequenos detalhes das festas de aniversário da nossa infância que continuam vivos na memória afetiva!\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
+    "source_file": "Guardanapo_kit festa__festcolor_2000_01.png",
+    "source_files": [
+      "Guardanapo_kit festa__festcolor_2000_01.png",
+      "Guardanapo_kit festa__festcolor_2000_02.png"
+    ],
+    "product_name": "Guardanapos de Papel Festcolor Xuxa",
+    "observed_details": [
+      {
+        "label": "Marca / Fabricante",
+        "value": "Festcolor (Lesticor Artigos S.A.)"
+      },
+      {
+        "label": "Origem",
+        "value": "Indústria Brasileira"
+      },
+      {
+        "label": "Código de Barras",
+        "value": "7 966037 199003"
+      },
+      {
+        "label": "Estampa Frontal",
+        "value": "Nome XUXA em destaque rosa, assinatura Xuxa com beijo e desenhos de sol, nuvens e borboletas"
+      },
+      {
+        "label": "Borda",
+        "value": "Detalhe decorativo rendado em tom rosa de ambos os lados"
+      },
+      {
+        "label": "Embalagem",
+        "value": "Pacote plástico lacrado com etiqueta rosa da fabricante"
+      }
+    ],
+    "research_status": "not_web_verified",
+    "items": [
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-guardanapo-kit-festa-festcolor-2000-01.png"
+      },
+      {
+        "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-guardanapo-kit-festa-festcolor-2000-02.png"
+      }
+    ]
   }
 ]

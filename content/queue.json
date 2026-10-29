@@ -712,7 +712,7 @@
   },
   {
     "id": "2026-10-29-copo-festcolor-2000-01",
-    "status": "scheduled",
+    "status": "published",
     "publish_at": "2026-10-29T17:00:00.000Z",
     "media_type": "CAROUSEL",
     "caption": "Copo Xuxa Festcolor\n\nDetalhes de festa que deixavam qualquer comemoração ainda mais especial! Um clássico item de aniversário preservado no pacote lacrado.\n\n📌 Item: Copos plásticos para festa\n📌 Fabricante: Festcolor Argos S.A.\n📌 Quantidade: Embalagem contendo 10 unidades\n📌 Licenciamento: © Xuxa Produções\n📌 Identificação no rótulo: COPO - XUXA\n📌 Origem: Indústria Brasileira\n📌 Código de barras: 7891279303090\n\n⭐ Curiosidade: A arte estampada traz a ilustração da Xuxa de cabelo curto ao lado do nome em letras coloridas sobre fundo de balões.\n\nGuardar itens de festa ainda na embalagem original é preservar a memória viva das celebrações da nossa infância.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
@@ -764,7 +764,11 @@
       {
         "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-copo-festcolor-2000-03.png"
       }
-    ]
+    ],
+    "published_at": "2026-10-29T20:04:15.924Z",
+    "media_id": "18119065994318305",
+    "comment_status": "error",
+    "comment_error": "IG POST /18119065994318305/comments failed: {\"message\":\"Application does not have permission for this action\",\"type\":\"IGApiException\",\"code\":10,\"fbtrace_id\":\"AggMJYpBi4ODyPhKxJw6mN4\"}"
   },
   {
     "id": "2026-10-30-embalagem-de-adesivos-de-espuma-xuxa-fes",

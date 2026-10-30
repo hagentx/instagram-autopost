@@ -772,7 +772,7 @@
   },
   {
     "id": "2026-10-30-embalagem-de-adesivos-de-espuma-xuxa-fes",
-    "status": "scheduled",
+    "status": "published",
     "publish_at": "2026-10-30T17:00:00.000Z",
     "media_type": "CAROUSEL",
     "caption": "Decoração de Festa Xou de Fexta da Xuxa - Festcolor\n\nPara transformar qualquer aniversário em um verdadeiro sonho infantil! Um item de decoração de festa preservado na embalagem original da Festcolor.\n\n📌 Linha / Título: Xou de Fexta da Xuxa\n📌 Fabricante: Festcolor Ind. e Comércio Ltda.\n📌 Quantidade: Contém 10 unidades\n📌 Licenciamento: © XUXA Produções\n📌 Origem: Indústria Brasileira (São Paulo)\n📌 Elementos ilustrados: Ilustração da Xuxa, sorvete gigante, pirulito, cogumelo e personagem verde\n\n⭐ Curiosidade: O cabeçalho da embalagem traz a grafia estilizada 'Xou de Fexta', brincando com o sotaque e o universo do programa.\n\nGuardar uma peça dessas no acervo é manter viva a memória das festas de aniversário mais alegres da nossa infância.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
@@ -816,7 +816,11 @@
       {
         "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-embalagem-de-adesivos-de-espuma-xuxa-fes.png"
       }
-    ]
+    ],
+    "published_at": "2026-10-30T18:43:43.928Z",
+    "media_id": "18121736008987629",
+    "comment_status": "error",
+    "comment_error": "IG POST /18121736008987629/comments failed: {\"message\":\"Application does not have permission for this action\",\"type\":\"IGApiException\",\"code\":10,\"fbtrace_id\":\"AVehRE5Yn8SCBRxoaIdDgc7\"}"
   },
   {
     "id": "2026-10-31-guardanapo-kit-festa-festcolor-2000-01",

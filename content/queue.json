@@ -824,7 +824,7 @@
   },
   {
     "id": "2026-10-31-guardanapo-kit-festa-festcolor-2000-01",
-    "status": "scheduled",
+    "status": "published",
     "publish_at": "2026-10-31T17:00:00.000Z",
     "media_type": "CAROUSEL",
     "caption": "Guardanapos de Papel Festcolor Xuxa\n\nOlha que riqueza de detalhe para transformar qualquer comemoração em um momento mágico! Esse pacote de guardanapos de papel traz estampas super fofas e temáticas.\n\n📌 Marca / Fabricante: Festcolor (Lesticor Artigos S.A.)\n📌 Origem: Indústria Brasileira\n📌 Código de Barras: 7 966037 199003\n📌 Estampa Frontal: Nome XUXA em destaque rosa, assinatura Xuxa com beijo e desenhos de sol, nuvens e borboletas\n📌 Borda: Detalhe decorativo rendado em tom rosa de ambos os lados\n📌 Embalagem: Pacote plástico lacrado com etiqueta rosa da fabricante\n\n⭐ Curiosidade: Além do nome XUXA em grafia estilo grafite, a estampa traz a clássica marca registrada da Rainha com a assinatura sobre a marca de um beijo e o coração estilizado.\n\nPequenos detalhes das festas de aniversário da nossa infância que continuam vivos na memória afetiva!\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
@@ -868,6 +868,10 @@
       {
         "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-guardanapo-kit-festa-festcolor-2000-02.png"
       }
-    ]
+    ],
+    "published_at": "2026-10-31T19:26:38.909Z",
+    "media_id": "18084240509379737",
+    "comment_status": "error",
+    "comment_error": "IG POST /18084240509379737/comments failed: {\"message\":\"Application does not have permission for this action\",\"type\":\"IGApiException\",\"code\":10,\"fbtrace_id\":\"AG5gnkrwRdrJMggzNWO_SRd\"}"
   }
 ]

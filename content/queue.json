@@ -876,7 +876,7 @@
   },
   {
     "id": "2026-11-21-furg-o-da-xuxa-01",
-    "status": "scheduled",
+    "status": "error",
     "publish_at": "2026-11-21T17:00:00.000Z",
     "media_type": "CAROUSEL",
     "caption": "Furgão da Xuxa\n\nQuem aí lembra de ver essa maravilha circulando nas prateleiras? O lendário Furgão da Xuxa é uma verdadeira viagem no tempo para todo baixinho apaixonado!\n\n📌 Fabricante: Brinquedos Mimo S.A.\n📌 Referências da caixa: Ref. 3.0541.4 (Amarelo) / Ref. 3.0541.5 (Pink)\n📌 Cor do modelo: Amarelo\n📌 Decoração: Acompanha jogos de figuras auto-adesivas com a Turma da Xuxa\n📌 Detalhes externos: Estepe no teto e calotas personalizadas com o símbolo X\n📌 Licenciamento: © Xuxa Produções\n📌 Origem: Indústria Brasileira (Itu - SP)\n\n⭐ Curiosidade: A embalagem original mostrava que o brinquedo foi lançado em duas opções de cores: amarelo e pink.\n\nUm clássico inesquecível da Mimo que deixa qualquer acervo muito mais alegre e colorido! 🚐✨\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
@@ -960,7 +960,8 @@
       {
         "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-furg-o-da-xuxa-11.png"
       }
-    ]
+    ],
+    "error": "Carousel requires between 2 and 10 items."
   },
   {
     "id": "2026-11-22-protetor-de-garrafa-festcolor-1988-01",

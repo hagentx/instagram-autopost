@@ -965,7 +965,7 @@
   },
   {
     "id": "2026-11-22-protetor-de-garrafa-festcolor-1988-01",
-    "status": "scheduled",
+    "status": "error",
     "publish_at": "2026-11-22T17:00:00.000Z",
     "media_type": "CAROUSEL",
     "caption": "Protetor de Garrafa Xou da Xuxa - Festcolor\n\nPara deixar a mesa do aniversário cheia de cor e nostalgia! Um item de festa super divertido e temático preservado na embalagem original.\n\n📌 Produto: Protetor de garrafa para festa\n📌 Fabricante: Festcolor Ind. e Com. Ltda.\n📌 Licenciamento: © Xuxa Produções\n📌 Quantidade: Contém 10 unidades\n📌 Linha: Fexta da Xuxa / Xou da Xuxa\n📌 Origem: Indústria Brasileira (São Paulo)\n\n⭐ Curiosidade: A embalagem traz na lapela a grafia divertida 'Fexta da Xuxa' com letras personificadas e balões ilustrados.\n\nDetalhes de época que transformavam qualquer festa de aniversário em uma celebração inesquecível do Xou da Xuxa.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
@@ -1009,7 +1009,8 @@
       {
         "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-protetor-de-garrafa-festcolor-1988-02.png"
       }
-    ]
+    ],
+    "error": "IG POST /27468875666120485/media failed: {\"message\":\"Error validating access token: Session has expired on Monday, 09-Nov-26 05:50:10 PST. The current time is Sunday, 22-Nov-26 13:31:28 PST.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":0,\"fbtrace_id\":\"Apz1NTbZs6egTO5c0RuFzFy\"}"
   },
   {
     "id": "2026-11-23-casa-e-jardim-01",

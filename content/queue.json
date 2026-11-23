@@ -1014,7 +1014,7 @@
   },
   {
     "id": "2026-11-23-casa-e-jardim-01",
-    "status": "scheduled",
+    "status": "error",
     "publish_at": "2026-11-23T17:00:00.000Z",
     "media_type": "CAROUSEL",
     "caption": "Xuxinha Casa e Jardim Balanço\n\nQue nostalgia ver esse conjunto da linha Xuxinha preservado na caixa com as peças ainda ensacadas! Um verdadeiro sonho de cenário para as brincadeiras.\n\n📌 Fabricante: Brinquedos Mimo S.A.\n📌 Linha: Xuxinha Casa e Jardim\n📌 Modelo: Balanço\n📌 Referência: 9.6039.1\n📌 Conteúdo ilustrado: Balanço com cobertura, espreguiçadeira com toldo e carrinho de apoio\n📌 Estampa do tecido: Padrão azul com as letras X, U, A\n📌 Aviso da embalagem: A boneca não acompanha produto\n\n⭐ Curiosidade: O tecido acolchoado que reveste os móveis traz uma estampa personalizada repleta de letrinhas formando o nome Xuxa.\n\nGuardar uma relíquia dessas com as peças montáveis intactas é manter viva a magia dos móveis em miniatura da nossa infância.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
@@ -1094,7 +1094,8 @@
       {
         "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-casa-e-jardim-10.jpg"
       }
-    ]
+    ],
+    "error": "IG POST /27468875666120485/media failed: {\"message\":\"Error validating access token: Session has expired on Monday, 09-Nov-26 05:50:10 PST. The current time is Monday, 23-Nov-26 14:49:01 PST.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":0,\"fbtrace_id\":\"AgumfG3HTHBCjH9OnksFqaV\"}"
   },
   {
     "id": "2026-11-24-xuxinha-planeta-ver-o-01",

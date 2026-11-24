@@ -1099,7 +1099,7 @@
   },
   {
     "id": "2026-11-24-xuxinha-planeta-ver-o-01",
-    "status": "scheduled",
+    "status": "published",
     "publish_at": "2026-11-24T17:00:00.000Z",
     "media_type": "CAROUSEL",
     "caption": "Boneca Xuxa Planeta Verão\n\nMais uma lindeza inspirada nos looks icônicos da nossa Rainha! Preservada na embalagem original, essa boneca traz todo o charme do programa Planeta Xuxa.\n\n📌 Fabricante: Multibrink\n📌 Linha: Xuxa Fashion Doll\n📌 Referência da versão: Ref. 0113 - Xuxa Planeta Verão\n📌 Figurino: Top listrado, saia verde transpassada e calçado alaranjado\n📌 Acessórios: Bolsa transparente com estampa XUXA\n📌 Coleção no verso: Xuxa Planeta Noite, Xuxa Planeta Verão e Xuxa Planeta Festa\n\n⭐ Curiosidade: No verso da embalagem, a descrição destaca que a linha traz roupas inspiradas nas apresentações do programa Planeta Xuxa.\n\nUm item cheio de estilo para recordar uma das fases mais marcantes da televisão brasileira.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
@@ -1155,7 +1155,11 @@
       {
         "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-planeta-ver-o-06.png"
       }
-    ]
+    ],
+    "published_at": "2026-11-24T18:38:41.790Z",
+    "media_id": "18120064604588490",
+    "comment_status": "error",
+    "comment_error": "IG POST /18120064604588490/comments failed: {\"message\":\"Application does not have permission for this action\",\"type\":\"IGApiException\",\"code\":10,\"fbtrace_id\":\"AhKc4yn1DNa_XtZU8NR2n0W\"}"
   },
   {
     "id": "2026-11-25-xuxinha-xspb3-01",

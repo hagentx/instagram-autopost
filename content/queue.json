@@ -1163,7 +1163,7 @@
   },
   {
     "id": "2026-11-25-xuxinha-xspb3-01",
-    "status": "scheduled",
+    "status": "published",
     "publish_at": "2026-11-25T17:00:00.000Z",
     "media_type": "CAROUSEL",
     "caption": "Boneca Xuxa Só Para Baixinhos - Country\n\nUma verdadeira relíquia para o acervo! Essa versão inspirada no universo Só Para Baixinhos traz todo o charme do estilo country diretamente na caixa original.\n\n📌 Fabricante: Multibrink\n📌 Referência: 0112\n📌 Linha: Xuxa Fashion Doll\n📌 Coleção: Só Para Baixinhos M - Country\n📌 Figurino: Jaqueta marrom com franjas, calça jeans e lenço rosa\n📌 Acessórios visíveis: Chapéu preto e pequenas figuras dos personagens Tex, Moitinha e Vilma\n\n⭐ Curiosidade: A parte posterior da embalagem destaca outros modelos da linha Fashion Doll, com roupas inspiradas nos vídeos Só Para Baixinhos I, II e III.\n\nIncrível ver uma peça tão especial conservada com todos os seus detalhes e acessórios de época.\n\n@xuxameneghel\n\n#colexão #xuxinha #rainhadosbaixinhos #colecionismo #xuxa",
@@ -1223,6 +1223,10 @@
       {
         "image_url": "https://raw.githubusercontent.com/hagentx/instagram-autopost/main/media/rendered/post-xuxinha-xspb3-06.png"
       }
-    ]
+    ],
+    "published_at": "2026-11-25T21:55:01.247Z",
+    "media_id": "17999108145066885",
+    "comment_status": "error",
+    "comment_error": "IG POST /17999108145066885/comments failed: {\"message\":\"Application does not have permission for this action\",\"type\":\"IGApiException\",\"code\":10,\"fbtrace_id\":\"AlP483i4J5ErtE-F8QQ0McJ\"}"
   }
 ]
